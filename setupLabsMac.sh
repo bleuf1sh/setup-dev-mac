@@ -119,16 +119,16 @@ function intro() {
   
   resetColor
   echo
-  read -p "Do you want to proceed with the setup? (y/N) " -n 1 local answer
+  read -p "Do you want to proceed with the setup? (y/N) " -n 1 answer
   echo
-  if [ ${answer} != "y" ]; then
+  if [ $answer != "y" ]; then
     exit 1
   fi
 
   echo
-  read -p "Do you consent to this script agreeing to some licenses on your behalf? (y/N) " -n 1 local answer
+  read -p "Do you consent to this script agreeing to some licenses on your behalf? (y/N) " -n 1 answer
   echo
-  if [ ${answer} != "y" ]; then
+  if [ $answer != "y" ]; then
     echo "Sorry, I can't automate things for you if you don't agree to other peoples legal stuff ):"
     exit 1
   fi
