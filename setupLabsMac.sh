@@ -215,9 +215,9 @@ function installCloudFoundryCli() {
   resetColor
 }
 
-function installDevLanguages() {
+function installDevLanguagesAndIDEs() {
   echo
-  echo "Installing Dev Languages..."
+  echo "Installing Dev Languages and IDEs..."
 
   echo
   echo "Installing Go..."
@@ -266,7 +266,7 @@ function installDevLanguages() {
 
   greenColor
   echo 
-  echo "Dev Languages Done!"
+  echo "Dev Languages And IDEs Done!"
   resetColor
 }
 
@@ -484,8 +484,8 @@ function remodelMacDock() {
 
   # Don't autohide the dock, people who are unfamiliar with Mac need something familiar
   defaults write com.apple.dock autohide -bool false
-  # Set the icon size of Dock items to 36 pixels
-  defaults write com.apple.dock tilesize -int 36
+  # Set the icon size of Dock items to 50 pixels
+  defaults write com.apple.dock tilesize -int 50
   # Minimize windows into their own icon (not application’s icon)
   defaults write com.apple.dock minimize-to-application -bool false
   # Enable spring loading for all Dock items
@@ -524,8 +524,11 @@ function remodelMacDock() {
   curl https://raw.githubusercontent.com/kcrawford/dockutil/master/scripts/dockutil > /usr/local/bin/dockutil
   chmod a+rx,go-w /usr/local/bin/dockutil
   dockutil --list | awk -F\t '{print "dockutil --remove \""$1"\" --no-restart"}' | sh
-  dockutil --add 'System Preferences' --no-restart
-  dockutil --add 'Launchpad' --no-restart
+  # dockutil --add '/Applications/Self Service.app' --no-restart
+  dockutil --add '/Applications/System Preferences.app' --no-restart
+  dockutil --add '/Applications/Launchpad.app' --no-restart
+  dockutil --add '/Applications/Docker.app' --no-restart
+  dockutil --add '/Applications/Postman.app' --no-restart
   dockutil --add '/Applications/Firefox.app' --no-restart
   dockutil --add '/Applications/Slack.app' --no-restart
   dockutil --add '/Applications/Google Chrome Canary.app' --no-restart
@@ -551,6 +554,9 @@ installGit
 
 printSpacer
 installCloudFoundryCli
+
+printSpacer
+installDevLanguagesAndIDEs
 
 printSpacer
 installIterm
