@@ -31,7 +31,18 @@ function printSpacer() {
   sleep 1
 }
 
+function enableMacSecurity() {
+  defaults write com.apple.LaunchServices LSQuarantine -bool true
+  killall Finder
+}
+
+function disableMacSecurity() {
+  defaults write com.apple.LaunchServices LSQuarantine -bool false
+  killall Finder
+}
+
 function onSigterm() {
+  enableMacSecurity
   redColor
   echo
   echo -e "Oops... something erred ):"
@@ -40,6 +51,9 @@ function onSigterm() {
 }
 
 function setupDone() {
+  enableMacSecurity
+
+  echo "Cleaning up your Brew installation..."
   brew cleanup
 
   greenColor
@@ -138,6 +152,7 @@ function acquireSudo() {
   echo "Let's cache sudo powers until we are done..."
   sudo -K
   sudo echo "Success: sudo powers cached"
+  disableMacSecurity
   # Keep-alive: update existing `sudo` time stamp until script has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
@@ -167,9 +182,6 @@ function installBrew() {
   echo
   echo "Upgrading any existing brews..."
   brew upgrade
-
-  echo "Cleaning up your Brew installation..."
-  brew cleanup
 
   echo
   echo "Adding Brew's sbin to your PATH..."
