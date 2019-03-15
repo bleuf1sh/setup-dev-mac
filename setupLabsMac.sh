@@ -435,7 +435,7 @@ function installMacApps() {
 
   echo "Installing Go2Shell..."
   local go2shell_dmg_dl_file_path=$(downloadFile "https://zipzapmac.com/download/Go2Shell" "Go2Shell.dmg")
-  installDmg go2shell_dmg_dl_file_path
+  installDmg $go2shell_dmg_dl_file_path
   open "/Applications/Go2Shell.app" 
   
   brew cask install flycut
