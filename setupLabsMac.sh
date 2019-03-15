@@ -665,7 +665,7 @@ function installFish() {
 }
 
 
-if [ $1 == "x" ]; then
+if [ "$1" == "x" ]; then
     greenColor
     echo "Experimental Mode!!!"
     resetColor
