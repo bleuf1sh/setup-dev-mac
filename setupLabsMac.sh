@@ -647,7 +647,7 @@ function remodelMacDock() {
 function installFish() {
   echo
   echo "Installing Fish shell..."
-  +e
+
   brew install fish
   refreshBash
   echo /usr/local/bin/fish | sudo tee -a /etc/shells
@@ -658,10 +658,7 @@ function installFish() {
   refreshBash
 
   echo "installing bobthefish"
-  fish
-  fisher add oh-my-fish/theme-bobthefish && exit
-
-  -e
+  fish -c "fisher add oh-my-fish/theme-bobthefish"
 }
 
 
