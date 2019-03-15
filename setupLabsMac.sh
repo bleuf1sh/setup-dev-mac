@@ -276,7 +276,7 @@ function installDevLanguagesAndIDEs() {
   refreshBash
   echo
   echo "n is a node version manager, it's easy to change to a different node version, see: https://github.com/tj/n"
-  if [ $(n --version) ]; then
+  if [ $(n --version && true) ]; then
     echo "n is already installed!"
   else
     echo
@@ -287,7 +287,7 @@ function installDevLanguagesAndIDEs() {
   refreshBash
   echo
   echo "SDK Man allow easy version management and installation of things like OpenJDK, Gradle, ..."
-  if [ $(sdk version) ]; then
+  if [ $(sdk version && true) ]; then
     echo "sdkman is already installed!"
   else
     echo
@@ -301,7 +301,7 @@ function installDevLanguagesAndIDEs() {
     source "~/.sdkman/bin/sdkman-init.sh" || sdk version
   fi
   refreshBash
-  
+
   local sdkman_java_version=sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1
   sdk install "$sdkman_java_version"
 
