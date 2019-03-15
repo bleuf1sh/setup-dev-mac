@@ -5,12 +5,17 @@ copy/paste this line into terminal and run
 curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh?$(date +%s)" > setupLabsMac.sh && bash setupLabsMac.sh
 ```
 
-## What makes this different than the other auto-setups out there
+## What makes this different than other auto-setups out there
 After using the others, it was difficult to switch to a different version of what was installed. For example, switching between different versions of node or switching from using OracleJDK to OpenJDK was extremely challenging.
 
 Therefore, this scripts primary differentiator is it tries to use an already available version manager when installing different tools or languages to ease transitioning to a different version later, if desired.
 
 It also configures and installs some additional things to make development easier.
+
+## Inspired by
+- https://github.com/pivotal/workstation-setup
+- https://github.com/ghaiklor/iterm-fish-fisher-osx
+
 
 ### Languages
 - OpenJDK 11.x via sdkman
