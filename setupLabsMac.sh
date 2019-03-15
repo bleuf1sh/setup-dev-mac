@@ -129,6 +129,7 @@ function downloadFile() {
 # usage: installDmg /Users/username/dev/setup-labs-mac/temp/git-latest.dmg
 function installDmg() {
   local full_dmg_file_path=$1
+  echo "installDmg: Attemping... $full_dmg_file_path"
   local mounted_volume=$(sudo hdiutil attach $full_dmg_file_path | grep "Volumes" | cut -f 3)
   set -x
   if [ -e "$mounted_volume"/*.app ]; then
