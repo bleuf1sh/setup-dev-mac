@@ -361,7 +361,7 @@
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
-	<true/>
+	<false/>
 	<key>NSColorPanelMode</key>
 	<string>0</string>
 	<key>NSColorPickerPreferredRGBEntryMode</key>
