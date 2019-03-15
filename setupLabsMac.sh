@@ -1,5 +1,6 @@
 #!/bin/bash
 # License located at the bottom of this file.
+SCRIPT_START_TIME=$SECONDS
 
 # Fail fast if something goes wrong
 set -e
@@ -79,12 +80,16 @@ function setupDone() {
 
   greenColor
   printBleuf1sh
+  
   echo
   echo "Sorry, there are a few manual steps:"
   echo
   echo "1) In Terminal -> Preferences -> Profiles -> Select Peppermint -> Click 'Default' button"
   echo
   echo "Done :D Please restart the computer to ensure all is well"
+  echo
+  SCRIPT_ELAPSED_TIME=$(($SECONDS - $SCRIPT_START_TIME))
+  echo "we took $(($SCRIPT_ELAPSED_TIME/60)) min $(($SCRIPT_ELAPSED_TIME%60)) sec"
   echo
   resetColor
   exit 0
@@ -650,8 +655,6 @@ remodelMacDock
 
 printSpacer
 setupDone
-
-
 
 
 
