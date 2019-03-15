@@ -48,6 +48,10 @@ function printSpacer() {
   sleep 1
 }
 
+function refreshBash() {
+  source ~/.bashrc
+}
+
 function enableMacSecurity() {
   defaults write com.apple.LaunchServices LSQuarantine -bool true
   killall Finder
@@ -173,6 +177,7 @@ function installCommandLineUtils() {
       echo "Please, wait until Command Line Tools will be installed, before continue"
 
       xcode-select --install
+      refreshBash
   else
       echo "Great! Seems like you have installed xCode Command Line Tools"
   fi
@@ -190,6 +195,7 @@ function installBrew() {
   else
     echo "Installing Brew..."
     yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    refreshBash
   fi
 
   echo
@@ -265,11 +271,16 @@ function installDevLanguagesAndIDEs() {
   echo "Installing Python3..."
   brew install python3 --force #guard against pre-installed version
 
-  echo
-  echo "Installing Node LTS via n..."
-  curl -L https://git.io/n-install | bash -s -- -y lts
+  if [ $(n --version) ]; then
+    echo "n is already installed!"
+  else
+    echo
+    echo "Installing Node LTS via n..."
+    curl -L https://git.io/n-install | bash -s -- -y lts
+  fi
   echo "n is a node version manager, it's easy to change to a different node version, see: https://github.com/tj/n"
-
+  refreshBash
+  
   echo
   echo "SDK Man allow easy version management and installation of things like OpenJDK, Gradle, ..."
   echo "Installing SDK Man..."
@@ -278,6 +289,7 @@ function installDevLanguagesAndIDEs() {
   echo "sdkman_auto_selfupdate=true" >> ~/.sdkman/etc/config
   echo "sdkman_insecure_ssl=false" >> ~/.sdkman/etc/config
   sleep 5
+  refreshBash
   source "~/.sdkman/bin/sdkman-init.sh"
 
   local sdkman_java_version=sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1
