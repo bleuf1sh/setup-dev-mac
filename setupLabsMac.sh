@@ -222,7 +222,7 @@ function installBrew() {
 function installGit() {
   echo
   echo "Installing Git..."
-  brew install git
+  brew install git --force #guard against pre-installed version
   
   echo
   echo "Setting global Git configurations..."
@@ -243,7 +243,7 @@ function installCloudFoundryCli() {
   echo
   echo "Installing Cloud Foundry CLI..."
   brew tap cloudfoundry/tap
-  brew install cf-cli
+  brew install cf-cli --force #guard against pre-installed version
 
   greenColor
   echo 
@@ -258,14 +258,12 @@ function installDevLanguagesAndIDEs() {
   echo
   echo "Installing Go..."
   mkdir -p ~/go/src
-  brew install go
-  brew install dep
-  brew cask install goland
-  installPivotalIdePrefs goland
+  brew install go --force #guard against pre-installed version
+  brew install dep --force #guard against pre-installed version
 
   echo
   echo "Installing Python3..."
-  brew install python3
+  brew install python3 --force #guard against pre-installed version
 
   echo
   echo "Installing Node LTS via n..."
@@ -279,6 +277,7 @@ function installDevLanguagesAndIDEs() {
   echo "sdkman_auto_answer=true" > ~/.sdkman/etc/config
   echo "sdkman_auto_selfupdate=true" >> ~/.sdkman/etc/config
   echo "sdkman_insecure_ssl=false" >> ~/.sdkman/etc/config
+  sleep 5
   source "~/.sdkman/bin/sdkman-init.sh"
 
   local sdkman_java_version=sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1
@@ -300,6 +299,9 @@ function installDevLanguagesAndIDEs() {
   brew cask install pycharm --force #guard against pre-installed pycharm
   installPivotalIdePrefs pycharm
 
+  brew cask install goland --force #guard against pre-installed goland
+  installPivotalIdePrefs goland
+
   greenColor
   echo 
   echo "Dev Languages And IDEs Done!"
@@ -311,7 +313,7 @@ function installIterm() {
   echo "Installing Iterm..."
   set +e
 
-  brew cask install iterm2
+  brew cask install iterm2 --force #guard against pre-installed version
 
   redColor
   echo "Configuring..."
@@ -343,7 +345,7 @@ function installVsCode() {
   echo "Installing VS Code..."
   set +e
 
-  brew cask install visual-studio-code
+  brew cask install visual-studio-code 
   echo 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"' >> ~/.bash_profile
   
   set -e
@@ -383,9 +385,9 @@ function installMacApps() {
   open "/Applications/ShiftIt.app"
 
   # Browsers
-  brew cask install firefox
-  brew cask install google-chrome
-  brew cask install google-chrome-canary
+  brew cask install firefox --force #guard against pre-installed version
+  brew cask install google-chrome --force #guard against pre-installed version
+  brew cask install google-chrome-canary --force #guard against pre-installed version
   echo "Configuring Google Chrome and Canary..."
   # Disable the all too sensitive backswipe on trackpads
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
@@ -395,8 +397,8 @@ function installMacApps() {
   defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
 
   # Misc
-  brew cask install slack
-  brew cask install docker
+  brew cask install slack --force #guard against pre-installed version
+  brew cask install docker --force #guard against pre-installed version
 
   set -e
 
