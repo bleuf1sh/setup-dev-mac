@@ -271,6 +271,7 @@ function installDevLanguagesAndIDEs() {
   echo "Installing Python3..."
   brew install python3 --force #guard against pre-installed version
 
+  refreshBash
   if [ $(n --version) ]; then
     echo "n is already installed!"
   else
