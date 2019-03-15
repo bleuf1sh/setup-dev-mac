@@ -49,6 +49,26 @@ function printSpacer() {
   sleep 1
 }
 
+function askForRequests() {
+  greenColor
+  echo "Write, in a single line, any of these additional things available for install:"
+  echo "pycharm"
+  echo "goland"
+  echo "for example: 'pycharm goland'"
+  read REQUESTED_INSTALLS
+  echo
+  echo "Thanks! We will try to install: $REQUESTED_INSTALLS"
+}
+
+# usage: didRequest pycharm
+function didRequest() {
+  if [[ REQUESTED_INSTALLS == *"$1"* ]]; then
+    return 0
+  else
+    return 1;
+  fi
+}
+
 function refreshBash() {
   source ~/.bash_profile
 }
@@ -153,7 +173,7 @@ function intro() {
   fi
 
   echo
-  read -p "Do you consent to this script agreeing to some licenses on your behalf? (y/N) " -n 1 answer
+  read -p "Do you consent to this script agreeing to licenses on your behalf? (y/N) " -n 1 answer
   echo
   if [ $answer != "y" ]; then
     redColor
@@ -328,11 +348,15 @@ function installDevLanguagesAndIDEs() {
   brew cask install intellij-idea --force #guard against pre-installed intellij
   installPivotalIdePrefs intellij
 
-  brew cask install pycharm --force #guard against pre-installed pycharm
-  installPivotalIdePrefs pycharm
+  if [ didRequest "pycharm" ]; then
+    brew cask install pycharm --force #guard against pre-installed pycharm
+    installPivotalIdePrefs pycharm
+  fi
 
-  brew cask install goland --force #guard against pre-installed goland
-  installPivotalIdePrefs goland
+  if [ didRequest "goland" ]; then
+    brew cask install goland --force #guard against pre-installed goland
+    installPivotalIdePrefs goland
+  fi
 
   greenColor
   echo 
@@ -394,7 +418,7 @@ function installMacApps() {
   echo
   echo "Installing Common Mac Apps..."
 
-  # Utilities
+  # Misc
   brew cask install the-unarchiver
   brew cask install postman
 
@@ -413,6 +437,9 @@ function installMacApps() {
   echo
   open "/Applications/ShiftIt.app"
 
+  brew cask install slack --force #guard against pre-installed version
+  brew cask install docker --force #guard against pre-installed version
+
   # Browsers
   brew cask install firefox --force #guard against pre-installed version
   brew cask install google-chrome --force #guard against pre-installed version
@@ -424,10 +451,6 @@ function installMacApps() {
   # Disable the all too sensitive backswipe on Magic Mouse
   defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
   defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
-
-  # Misc
-  brew cask install slack --force #guard against pre-installed version
-  brew cask install docker --force #guard against pre-installed version
 
   set -e
 
@@ -620,6 +643,7 @@ intro
 
 printSpacer
 acquireSudo
+askForRequests
 
 mkdir -p $TEMP_DIR
 

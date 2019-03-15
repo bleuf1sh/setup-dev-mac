@@ -16,8 +16,8 @@ curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setup
 ### IDE's
 - VS Code
 - IntelliJ w/ Pivotal IDE Prefs
-- PyCharm w/ Pivotal IDE Prefs
-- goland w/ Pivotal IDE Prefs
+- *PyCharm w/ Pivotal IDE Prefs
+- *goland w/ Pivotal IDE Prefs
 
 ### CLI's
 - Brew
@@ -44,3 +44,8 @@ curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setup
 - custom Peppermint color in terminals
 - all hidden files are visible in Finder
 - default Mac dock is scrubbed of all distractions
+
+
+
+
+*indicates optional
