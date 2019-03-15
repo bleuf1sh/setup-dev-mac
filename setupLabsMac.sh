@@ -652,15 +652,16 @@ function installFish() {
   refreshBash
   echo /usr/local/bin/fish | sudo tee -a /etc/shells
   refreshBash
-
+  
+  mkdir -p ~/.config/fish
   echo "downloading configs..."
   local fish_configs_base_url="https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/fish"
-  # Put config.fish
-  local config_fish_dl_file_path=$(downloadFile "$fish_configs_base_url/config.fish" "config.fish")
-  cp "$config_fish_dl_file_path" ~/.config/fish
   # Put bleuf1sh.fish
   local bleuf1sh_fish_dl_file_path=$(downloadFile "$fish_configs_base_url/bleuf1sh.fish" "bleuf1sh.fish")
   cp "$bleuf1sh_fish_dl_file_path" ~/.config/fish
+  # Put config.fish
+  local config_fish_dl_file_path=$(downloadFile "$fish_configs_base_url/config.fish" "config.fish")
+  cp "$config_fish_dl_file_path" ~/.config/fish
 
   echo "installing fisher for fish..."
   curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
