@@ -1206,7 +1206,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string></string>
+	<string>~/Library/Preferences</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
