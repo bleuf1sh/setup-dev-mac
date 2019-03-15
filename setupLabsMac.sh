@@ -8,6 +8,23 @@ trap onSigterm SIGKILL SIGTERM
 MY_BASE_DIR="$(pwd)"
 TEMP_DIR="$MY_BASE_DIR/temp"
 
+function printBleuf1sh() {
+  echo
+  echo '               __   __'
+  echo '              __ \ / __'
+  echo '             /  \ | /  \'
+  echo '                 \|/'
+  echo '            _,.---v---._'
+  echo '   /\__/\  /            \'
+  echo '   \_  _/ /              \'
+  echo '     \ \_|           @ __|'
+  echo '  hjw \                \_'
+  echo '  `97  \     ,__/       /'
+  echo '    ~~~~`~~~~~~~~~~~~~~/~~~~~'
+  echo '            bleuf1sh        '
+  echo 
+}
+
 function resetColor() {
   echo -e "\033[0m\c"
 }
@@ -57,19 +74,20 @@ function setupDone() {
   brew cleanup
 
   greenColor
+  printBleuf1sh
   echo
-  echo "Do not forgot to make two simple, but manual things:"
+  # echo "Do not forgot to make two simple, but manual things:"
+  # echo
+  # echo "1) Open iTerm -> Preferences -> Profiles -> Colors -> Presets and apply color preset"
+  # echo "2) Open iTerm -> Preferences -> Profiles -> Text -> Font and apply font (for non-ASCII as well)"
   echo
-  echo "1) Open iTerm -> Preferences -> Profiles -> Colors -> Presets and apply color preset"
-  echo "2) Open iTerm -> Preferences -> Profiles -> Text -> Font and apply font (for non-ASCII as well)"
-  echo
-  echo "Done :D Please restart the computer"
+  echo "Done :D Please restart the computer to ensure all is well"
   echo
   resetColor
   exit 0
 }
 
-# usage: downloadFile https://www.websitewithstuff.com/git-v21231.dmg git-latest.dmg
+# usage: dl_file_path=$(downloadFile "https://www.websitewithstuff.com/git-v21231.dmg" "git-latest.dmg")
 function downloadFile() {
   local url=$1
   local filename=$2
@@ -114,20 +132,7 @@ function installPivotalIdePrefs() {
 function intro() {
   greenColor
 
-  echo
-  echo '               __   __'
-  echo '              __ \ / __'
-  echo '             /  \ | /  \'
-  echo '                 \|/'
-  echo '            _,.---v---._'
-  echo '   /\__/\  /            \'
-  echo '   \_  _/ /              \'
-  echo '     \ \_|           @ __|'
-  echo '  hjw \                \_'
-  echo '  `97  \     ,__/       /'
-  echo '    ~~~~`~~~~~~~~~~~~~~/~~~~~'
-  echo '            bleuf1sh        '
-  echo 
+  printBleuf1sh
 
   echo "This script will guide you through the setup of your Labs Mac (:"
   
@@ -157,12 +162,33 @@ function acquireSudo() {
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
+function installCommandLineUtils() {
+  echo "Trying to detect installed xCode Command Line Tools..."
+
+  if ! [ $(xcode-select -p) ]; then
+      echo "You don't have Command Line Tools installed"
+      echo "They are required to proceed with installation"
+      echo
+      echo "Installing Command Line Tools..."
+      echo "Please, wait until Command Line Tools will be installed, before continue"
+
+      xcode-select --install
+  else
+      echo "Great! Seems like you have installed xCode Command Line Tools"
+  fi
+
+  greenColor
+  echo "Accepting on your behalf the xCodeBuild License"
+  sudo xcodebuild -license accept
+  
+  reset_color
+}
+
 function installBrew() {
   if [ $(which brew) ]; then
     echo "Brew is already installed!"
   else
     echo "Installing Brew..."
-    sudo xcodebuild -license accept
     yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
@@ -301,9 +327,10 @@ function installIterm() {
   # Set iTerm Preferences
   local iterm_prefs_dl_file_path=$(downloadFile "$term_profiles_base_url/com.googlecode.iterm2.plist" "com.googlecode.iterm2.plist")
   cp "$iterm_prefs_dl_file_path" ~/Library/Preferences
-  # Set iTerm Colors
-  local iterm_colors_dl_file_path=$(downloadFile "$term_profiles_base_url/custom-pepperment.itermcolors" "custom-pepperment.itermcolors")
-  open "$iterm_colors_dl_file_path"
+  # It isn't needed to set the iTerm color because the color is embedded into the prefs above
+  # # Set iTerm Colors
+  # local iterm_colors_dl_file_path=$(downloadFile "$term_profiles_base_url/custom-pepperment.itermcolors" "custom-pepperment.itermcolors")
+  # open "$iterm_colors_dl_file_path"
 
   set -e
   
@@ -551,12 +578,20 @@ function remodelMacDock() {
   dockutil --add 'Downloads'
 }
 
+
+
+#
+# Here we go!
+#
 intro
 
 printSpacer
 acquireSudo
 
 mkdir -p $TEMP_DIR
+
+printSpacer
+installCommandLineUtils
 
 printSpacer
 installBrew
