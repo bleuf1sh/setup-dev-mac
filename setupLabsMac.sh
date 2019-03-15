@@ -350,12 +350,12 @@ function installDevLanguagesAndIDEs() {
   brew cask install intellij-idea --force #guard against pre-installed intellij
   installPivotalIdePrefs intellij
 
-  if [ didRequest "pycharm" ]; then
+  if didRequest "pycharm"; then
     brew cask install pycharm --force #guard against pre-installed pycharm
     installPivotalIdePrefs pycharm
   fi
 
-  if [ didRequest "goland" ]; then
+  if didRequest "goland"; then
     brew cask install goland --force #guard against pre-installed goland
     installPivotalIdePrefs goland
   fi
