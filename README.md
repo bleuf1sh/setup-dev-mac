@@ -4,6 +4,8 @@
 
 ```
 bash <(curl -s "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh?now=$(date '+%Y.%m.%d_%H.%M.%S')")
+
+curl -sL https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh | bash -s
 ```
 
 ### Languages
