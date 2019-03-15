@@ -50,14 +50,16 @@ function printSpacer() {
 }
 
 function askForRequests() {
-  greenColor
+  resetColor
   echo "Write, in a single line, any of these additional things available for install:"
   echo "    pycharm"
   echo "    goland"
   echo "for example: 'pycharm goland'"
-  read REQUESTED_INSTALLS
+  greenColor
+  read -p "Additionally Install: " REQUESTED_INSTALLS
   echo
   echo "Thanks! We will try to install: $REQUESTED_INSTALLS"
+  resetColor
 }
 
 # usage: didRequest pycharm
