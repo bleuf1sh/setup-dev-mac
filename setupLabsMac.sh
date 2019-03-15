@@ -65,11 +65,10 @@ function askForRequests() {
 
 # usage: didRequest pycharm
 function didRequest() {
-  if [[ REQUESTED_INSTALLS == *"$1"* ]]; then
-    return 0
-  else
-    return 1;
-  fi
+  case "$REQUESTED_INSTALLS" in
+    *$1*) echo 'True'  && return 0;;
+    *)    echo 'False' && return 1;;
+  esac
 }
 
 function refreshBash() {
@@ -644,8 +643,6 @@ function remodelMacDock() {
   dockutil --add '/Applications/iTerm.app' --no-restart
   dockutil --add 'Downloads'
 }
-
-
 
 #
 # Here we go!
