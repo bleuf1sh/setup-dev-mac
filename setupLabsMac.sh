@@ -659,6 +659,9 @@ function installFish() {
 
   echo "installing bobthefish"
   fish -c "fisher add oh-my-fish/theme-bobthefish"
+
+  echo "installing sdkman-for-fish"
+  fish -c "fisher add reitzig/sdkman-for-fish"
 }
 
 
