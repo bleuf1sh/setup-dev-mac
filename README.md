@@ -3,7 +3,7 @@
 ## Simply copy/paste this line into terminal and run
 
 ```
-curl -s -LOJR "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh?now=$(date "+%Y.%m.%d_%H.%M.%S")" && bash setupLabsMac.sh
+curl -s -LOJR "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh?$(date +%s) -o setupLabsMac.sh" && bash setupLabsMac.sh
 ```
 
 ### Languages
