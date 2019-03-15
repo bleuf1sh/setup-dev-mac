@@ -51,7 +51,7 @@ function printSpacer() {
 
 function askForRequests() {
   resetColor
-  echo "Write, in a single line, any of these additional things available for install:"
+  echo "Write, in a single line, any of these additional IDE's available for install:"
   echo "    pycharm"
   echo "    goland"
   echo "for example: 'pycharm goland'"
