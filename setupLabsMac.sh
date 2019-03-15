@@ -223,8 +223,6 @@ function installGit() {
   echo
   echo "Installing Git..."
   brew install git
-  #local dl_file_path=$(downloadFile "https://sourceforge.net/projects/git-osx-installer/files/git-2.21.0-intel-universal-mavericks.dmg/download" "git-latest.dmg")
-  #installDmg "$dl_file_path"
   
   echo
   echo "Setting global Git configurations..."
@@ -368,6 +366,10 @@ function installMacApps() {
   # Utilities
   brew cask install the-unarchiver
   brew cask install postman
+
+  local go2shell_dmg_dl_file_path=$(downloadFile "https://zipzapmac.com/download/Go2Shell" "Go2Shell.dmg")
+  installDmg go2shell_dmg_dl_file_path
+  open "/Applications/Go2Shell.app" 
   
   brew cask install flycut
   echo "Configuring Flycut..."
