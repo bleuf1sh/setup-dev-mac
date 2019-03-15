@@ -12,11 +12,6 @@ Therefore, this scripts primary differentiator is it tries to use an already ava
 
 It also configures and installs some additional things to make development easier.
 
-## Inspired by
-- https://github.com/pivotal/workstation-setup
-- https://github.com/ghaiklor/iterm-fish-fisher-osx
-
-
 ### Languages
 - OpenJDK 11.x via sdkman
 - Gradle 5.2.x via sdkman
@@ -60,7 +55,12 @@ It also configures and installs some additional things to make development easie
 
 *indicates optional
 
-</br></br></br></br></br></br></br></br></br>
+</br>
+
+## Inspired by
+- https://github.com/pivotal/workstation-setup
+- https://github.com/ghaiklor/iterm-fish-fisher-osx
+</br></br></br></br></br></br>
 
 
 
