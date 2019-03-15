@@ -302,6 +302,7 @@ function installDevLanguagesAndIDEs() {
   fi
   refreshBash
 
+  set -x
   local sdkman_java_version=sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1
   sdk install "$sdkman_java_version"
 
@@ -310,7 +311,7 @@ function installDevLanguagesAndIDEs() {
 
   local sdkman_springboot_version=sdk list springboot | tr " " "\n" | grep -o "^2.1.*" | head -1
   sdk install "$sdkman_springboot_version"
-
+  set +x
 
   echo 'Installing IntelliJ Suite...'
   brew cask install jetbrains-toolbox --force #guard against pre-installed jetbrains-toolbox
