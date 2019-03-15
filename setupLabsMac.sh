@@ -181,7 +181,7 @@ function installCommandLineUtils() {
   echo "Accepting on your behalf the xCodeBuild License"
   sudo xcodebuild -license accept
   
-  reset_color
+  resetColor
 }
 
 function installBrew() {
