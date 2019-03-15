@@ -12,7 +12,7 @@ Therefore, this scripts primary differentiator is it tries to use an already ava
 
 It also configures and installs some additional things to make development easier.
 
-### Languages
+### Dev langs + tooling
 - OpenJDK 11.x via sdkman
 - Gradle 5.2.x via sdkman
 - SpringBoot 2.1.x via sdkman
