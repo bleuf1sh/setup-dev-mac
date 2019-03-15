@@ -47,7 +47,7 @@ It also configures and installs some additional things to make development easie
 - The Unarchiver
 
 ### Notes
-- all hidden files are visible in Finder
+- all hidden files are made visible in Finder
 - ability to open a terminal from Finder
 - default Mac dock is scrubbed of all distractions
 - custom Peppermint color in terminals for better readability
