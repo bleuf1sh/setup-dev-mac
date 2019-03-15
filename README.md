@@ -13,10 +13,10 @@ Therefore, this scripts primary differentiator is it tries to use an already ava
 It also configures and installs some additional things to make development easier.
 
 ### Dev langs + tooling
-- OpenJDK 11.x via sdkman
-- Gradle 5.2.x via sdkman
-- SpringBoot 2.1.x via sdkman
-- Node LTS via n
+- OpenJDK 11.x [via sdk man](https://sdkman.io/)
+- Gradle 5.2.x [via sdk man](https://sdkman.io/)
+- SpringBoot 2.1.x [via sdk man](https://sdkman.io/)
+- Node LTS [via n](https://github.com/tj/n)
 - Python3
 
 ### IDE's
