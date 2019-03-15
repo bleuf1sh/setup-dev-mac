@@ -1,5 +1,5 @@
 # setup-labs-mac
-## Simple one-liner auto magic setup for programming on a Mac in under 15min
+## Simple one-liner auto magic setup for programming on a Mac in ~10min
 copy/paste this line into terminal (bash) and run
 ```
 curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh?$(date +%s)" > setupLabsMac.sh && bash setupLabsMac.sh

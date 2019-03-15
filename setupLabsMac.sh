@@ -71,7 +71,10 @@ function didRequest() {
 }
 
 function refreshBash() {
-  source ~/.bash_profile || echo "tried to refresh bash but failed..."
+  if [[ -e ~/.bash_profile ]]; then
+    echo "sourcing ~/.bash_profile"
+    source ~/.bash_profile
+  fi
 }
 
 function enableMacSecurity() {
@@ -170,12 +173,8 @@ function intro() {
   sleep 1
   greenColor
   echo
-  read -p "Do you want to proceed with the setup? (y/N) " answer
+  read -p "----- PRESS ANY KEY TO CONTINUE -----" throw_away
   echo
-  if [ $answer != "y" ]; then
-    resetColor
-    exit 1
-  fi
 
   sleep 1
   echo
