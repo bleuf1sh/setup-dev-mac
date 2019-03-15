@@ -287,8 +287,7 @@ function installDevLanguagesAndIDEs() {
   refreshBash
   echo
   echo "SDK Man allow easy version management and installation of things like OpenJDK, Gradle, ..."
-  ls -al "~"
-  if [ -d "~/.sdkman" ]; then
+  if [ -d ~/.sdkman ]; then
     echo "sdkman is already installed!"
   else
     echo
@@ -299,7 +298,7 @@ function installDevLanguagesAndIDEs() {
     echo "sdkman_insecure_ssl=false" >> ~/.sdkman/etc/config
     sleep 5
     refreshBash
-    source "~/.sdkman/bin/sdkman-init.sh" || sdk version
+    source ~/.sdkman/bin/sdkman-init.sh || sdk version
   fi
   refreshBash
 
