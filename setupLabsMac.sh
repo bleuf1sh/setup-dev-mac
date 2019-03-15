@@ -59,7 +59,6 @@ function askForRequests() {
   greenColor
   read -p "Additionally Install: " REQUESTED_INSTALLS
   echo
-  echo "Thanks! We will try to install: $REQUESTED_INSTALLS"
   resetColor
 }
 
