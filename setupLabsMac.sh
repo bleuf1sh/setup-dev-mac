@@ -287,7 +287,7 @@ function installDevLanguagesAndIDEs() {
   refreshBash
   echo
   echo "SDK Man allow easy version management and installation of things like OpenJDK, Gradle, ..."
-  if [ $(type -a sdk && true) ]; then
+  if [ -d "~/.sdkman" ]; then
     echo "sdkman is already installed!"
   else
     echo
