@@ -66,8 +66,8 @@ function askForRequests() {
 # usage: didRequest pycharm
 function didRequest() {
   case "$REQUESTED_INSTALLS" in
-    *$1*) echo 'True'  && return 0;;
-    *)    echo 'False' && return 1;;
+    *$1*) echo "didRequest $1 TRUE"  && return 0;;
+    *)    echo "didRequest $1 FALSE" && return 1;;
   esac
 }
 
