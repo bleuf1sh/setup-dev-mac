@@ -1159,7 +1159,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/aattar</string>
+			<string>~</string>
 		</dict>
 	</array>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
@@ -1206,7 +1206,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/aattar/Desktop</string>
+	<string>~/Desktop</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
