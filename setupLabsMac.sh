@@ -49,7 +49,7 @@ function printSpacer() {
 }
 
 function refreshBash() {
-  source ~/.bashrc
+  source ~/.bash_profile
 }
 
 function enableMacSecurity() {
