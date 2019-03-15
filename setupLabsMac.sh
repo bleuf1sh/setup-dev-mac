@@ -80,10 +80,9 @@ function setupDone() {
   greenColor
   printBleuf1sh
   echo
-  # echo "Do not forgot to make two simple, but manual things:"
-  # echo
-  # echo "1) Open iTerm -> Preferences -> Profiles -> Colors -> Presets and apply color preset"
-  # echo "2) Open iTerm -> Preferences -> Profiles -> Text -> Font and apply font (for non-ASCII as well)"
+  echo "Sorry, there are a few manual steps:"
+  echo
+  echo "1) In Terminal -> Preferences -> Profiles -> Select Peppermint -> Click 'Default' button"
   echo
   echo "Done :D Please restart the computer to ensure all is well"
   echo
@@ -385,9 +384,6 @@ function installVsCode() {
 }
 
 function installMacApps() {
-  echo "-"
-  echo "All these applications are independent, so if one fails to install, we won't stop!"
-  echo "-"
   set +e
 
   echo
