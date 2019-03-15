@@ -52,8 +52,8 @@ function printSpacer() {
 function askForRequests() {
   greenColor
   echo "Write, in a single line, any of these additional things available for install:"
-  echo "pycharm"
-  echo "goland"
+  echo "    pycharm"
+  echo "    goland"
   echo "for example: 'pycharm goland'"
   read REQUESTED_INSTALLS
   echo
@@ -70,7 +70,7 @@ function didRequest() {
 }
 
 function refreshBash() {
-  source ~/.bash_profile
+  source ~/.bash_profile || echo "tried to refresh bash but failed..."
 }
 
 function enableMacSecurity() {
