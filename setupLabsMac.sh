@@ -277,7 +277,9 @@ function installDevLanguagesAndIDEs() {
   echo
   echo "n is a node version manager, it's easy to change to a different node version, see: https://github.com/tj/n"
   if [ $(n --version && true) ]; then
+    greenColor
     echo "n is already installed!"
+    resetColor
   else
     echo
     echo "Installing Node LTS via n..."
@@ -288,7 +290,9 @@ function installDevLanguagesAndIDEs() {
   echo
   echo "SDK Man allow easy version management and installation of things like OpenJDK, Gradle, ..."
   if [ -d ~/.sdkman ]; then
-    echo "sdkman is already installed!"
+    greenColor
+    echo "SDK Man is already installed!"
+    resetColor
   else
     echo
     echo "Installing SDK Man..."
