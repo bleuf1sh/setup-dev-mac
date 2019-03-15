@@ -196,7 +196,7 @@ function acquireSudo() {
   greenColor
   sudo -K
   blueColor
-  sudo echo "Success: sudo powers cached"
+  sudo echo "Success!"
   resetColor
   disableMacSecurity
   # Keep-alive: update existing `sudo` time stamp until script has finished
