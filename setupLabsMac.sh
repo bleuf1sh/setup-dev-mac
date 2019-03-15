@@ -168,14 +168,14 @@ function intro() {
   
   resetColor
   echo
-  read -p "Do you want to proceed with the setup? (y/N) " -n 1 answer
+  read -p "Do you want to proceed with the setup? (y/N) " answer
   echo
   if [ $answer != "y" ]; then
     exit 1
   fi
 
   echo
-  read -p "Do you consent to this script agreeing to licenses on your behalf? (y/N) " -n 1 answer
+  read -p "Do you consent to this script agreeing to licenses on your behalf? (y/N) " answer
   echo
   if [ $answer != "y" ]; then
     redColor
