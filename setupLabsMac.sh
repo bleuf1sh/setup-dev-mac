@@ -55,6 +55,7 @@ function askForRequests() {
   echo "    pycharm"
   echo "    goland"
   echo "for example: 'pycharm goland'"
+  sleep 1
   greenColor
   read -p "Additionally Install: " REQUESTED_INSTALLS
   echo
@@ -164,16 +165,20 @@ function intro() {
 
   printBleuf1sh
 
+  resetColor
   echo "This script will guide you through the setup of your Labs Mac (:"
   
-  resetColor
+  sleep 1
+  greenColor
   echo
   read -p "Do you want to proceed with the setup? (y/N) " answer
   echo
   if [ $answer != "y" ]; then
+    resetColor
     exit 1
   fi
 
+  sleep 1
   echo
   read -p "Do you consent to this script agreeing to licenses on your behalf? (y/N) " answer
   echo
@@ -183,12 +188,16 @@ function intro() {
     resetColor
     exit 1
   fi
+  resetColor
 }
 
 function acquireSudo() {
   echo "Let's cache sudo powers until we are done..."
+  greenColor
   sudo -K
+  blueColor
   sudo echo "Success: sudo powers cached"
+  resetColor
   disableMacSecurity
   # Keep-alive: update existing `sudo` time stamp until script has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -642,10 +651,10 @@ function remodelMacDock() {
 # Here we go!
 #
 intro
+askForRequests
 
 printSpacer
 acquireSudo
-askForRequests
 
 mkdir -p $TEMP_DIR
 
