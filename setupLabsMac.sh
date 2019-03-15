@@ -152,7 +152,9 @@ function intro() {
   read -p "Do you consent to this script agreeing to some licenses on your behalf? (y/N) " -n 1 answer
   echo
   if [ $answer != "y" ]; then
+    redColor
     echo "Sorry, I can't automate things for you if you don't agree to other peoples legal stuff ):"
+    resetColor
     exit 1
   fi
 }
@@ -272,6 +274,8 @@ function installDevLanguagesAndIDEs() {
   brew install python3 --force #guard against pre-installed version
 
   refreshBash
+  echo
+  echo "n is a node version manager, it's easy to change to a different node version, see: https://github.com/tj/n"
   if [ $(n --version) ]; then
     echo "n is already installed!"
   else
@@ -279,20 +283,25 @@ function installDevLanguagesAndIDEs() {
     echo "Installing Node LTS via n..."
     curl -L https://git.io/n-install | bash -s -- -y lts
   fi
-  echo "n is a node version manager, it's easy to change to a different node version, see: https://github.com/tj/n"
-  refreshBash
   
+  refreshBash
   echo
   echo "SDK Man allow easy version management and installation of things like OpenJDK, Gradle, ..."
-  echo "Installing SDK Man..."
-  curl -s "https://get.sdkman.io" | bash
-  echo "sdkman_auto_answer=true" > ~/.sdkman/etc/config
-  echo "sdkman_auto_selfupdate=true" >> ~/.sdkman/etc/config
-  echo "sdkman_insecure_ssl=false" >> ~/.sdkman/etc/config
-  sleep 5
+  if [ $(sdk version) ]; then
+    echo "sdkman is already installed!"
+  else
+    echo
+    echo "Installing SDK Man..."
+    curl -s "https://get.sdkman.io" | bash
+    echo "sdkman_auto_answer=true" > ~/.sdkman/etc/config
+    echo "sdkman_auto_selfupdate=true" >> ~/.sdkman/etc/config
+    echo "sdkman_insecure_ssl=false" >> ~/.sdkman/etc/config
+    sleep 5
+    refreshBash
+    source "~/.sdkman/bin/sdkman-init.sh" || sdk version
+  fi
   refreshBash
-  source "~/.sdkman/bin/sdkman-init.sh"
-
+  
   local sdkman_java_version=sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1
   sdk install "$sdkman_java_version"
 
