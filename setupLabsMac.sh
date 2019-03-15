@@ -644,6 +644,36 @@ function remodelMacDock() {
   dockutil --add 'Downloads'
 }
 
+function installFish() {
+  echo
+  echo "Installing Fish shell..."
+  +e
+  brew install fish
+  refreshBash
+  echo /usr/local/bin/fish | sudo tee -a /etc/shells
+  refreshBash
+
+  echo "installing fisher for fish"
+  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+  refreshBash
+
+  echo "installing bobthefish"
+  fish
+  fisher add oh-my-fish/theme-bobthefish && exit
+
+  -e
+}
+
+
+if [ $1 == "x" ]; then
+    greenColor
+    echo "Experimental Mode!!!"
+    resetColor
+    installFish
+    exit 0
+fi
+
+
 #
 # Here we go!
 #
