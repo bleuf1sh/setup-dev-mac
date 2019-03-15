@@ -1,11 +1,11 @@
 # setup-labs-mac
-## Simple one-liner auto-setup for application development on Mac
+## Simple one-liner auto magic setup for programming on a Mac in under 15min
 copy/paste this line into terminal and run
 ```
 curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh?$(date +%s)" > setupLabsMac.sh && bash setupLabsMac.sh
 ```
 
-## What makes this different than other auto-setups out there
+## What makes this different than other auto magical setups out there
 After using the others, it was difficult to switch to a different version of what was installed. For example, switching between different versions of node or switching from using OracleJDK to OpenJDK was extremely challenging.
 
 Therefore, this scripts primary differentiator is it tries to use an already available version manager when installing different tools or languages to ease transitioning to a different version later, if desired.
