@@ -7,7 +7,8 @@ set -e
 trap onSigterm SIGKILL SIGTERM
 
 MY_BASE_DIR="$(pwd)"
-TEMP_DIR="$MY_BASE_DIR/temp"
+LOCAL_SETUP_LABS_MAC_GIT_REPO=~/setup-labs-mac
+MY_TEMP_DIR="$LOCAL_SETUP_LABS_MAC_GIT_REPO/temp"
 
 function printBleuf1sh() {
   echo
@@ -123,7 +124,7 @@ function setupDone() {
 function downloadFile() {
   local url=$1
   local filename=$2
-  local full_file_path=$TEMP_DIR/$filename
+  local full_file_path=$MY_TEMP_DIR/$filename
   curl -C - -L $url --output $full_file_path
   echo "$full_file_path"
 }
@@ -148,7 +149,7 @@ function installDmg() {
 function installPivotalIdePrefs() {
   local ide=$1
 
-  local full_path_pivotal_ide_prefs="$TEMP_DIR/pivotal_ide_prefs"
+  local full_path_pivotal_ide_prefs="$MY_TEMP_DIR/pivotal_ide_prefs"
 
   if [ ! -d "$full_path_pivotal_ide_prefs" ]; then
   mkdir -p "$full_path_pivotal_ide_prefs"
@@ -277,6 +278,29 @@ function installGit() {
   greenColor
   echo 
   echo "Git Done!"
+  resetColor
+}
+
+function getSetupLabsMacGitRepo() {
+  echo
+  echo "Setup Labs Mac Git Repo..."
+  
+  if [ ! -d "$LOCAL_SETUP_LABS_MAC_GIT_REPO" ]; then
+    mkdir -p "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+    echo
+    echo "Downloading Setup Labs Mac Git Repo"
+    git clone https://github.com/bleuf1sh/setup-labs-mac.git "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+  else
+    echo
+    echo "Syncing Setup Labs Mac Git Repo..."
+    pushd "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+    git pull -r
+    popd
+  fi
+
+  greenColor
+  echo 
+  echo "Setup Labs Mac Git Repo... Done"
   resetColor
 }
 
@@ -652,7 +676,7 @@ function installFish() {
   refreshBash
   echo /usr/local/bin/fish | sudo tee -a /etc/shells
   refreshBash
-  
+
   mkdir -p ~/.config/fish
   echo "downloading configs..."
   local fish_configs_base_url="https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/fish"
@@ -693,7 +717,7 @@ askForRequests
 printSpacer
 acquireSudo
 
-mkdir -p $TEMP_DIR
+mkdir -p $MY_TEMP_DIR
 
 printSpacer
 installCommandLineUtils
