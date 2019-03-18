@@ -11,8 +11,7 @@ brew cask install the-unarchiver
 brew cask install postman
 
 echo "Setup Mac Apps... Installing Go2Shell"
-go2shell_dmg_dl_file_path=$(downloadFile "https://zipzapmac.com/download/Go2Shell" "Go2Shell.dmg")
-installDmg $go2shell_dmg_dl_file_path
+brew cask install go2shell
 open "/Applications/Go2Shell.app"
 
 brew cask install flycut
