@@ -227,6 +227,96 @@ function setupDone() {
   exit 0
 }
 
+function acquireSudo() {
+  echo "Let's cache sudo powers until we are done..."
+  greenColor
+  sudo -K
+  blueColor
+  sudo echo "Success!"
+  resetColor
+  disableMacSecurity
+  # Keep-alive: update existing `sudo` time stamp until script has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+}
+
+function installCommandLineUtils() {
+  echo "Trying to detect installed xCode Command Line Tools..."
+
+  if ! [ $(xcode-select -p) ]; then
+      echo "You don't have Command Line Tools installed"
+      echo "They are required to proceed with installation"
+      echo
+      echo "Installing Command Line Tools..."
+      echo "Please, wait until Command Line Tools will be installed, before continue"
+
+      xcode-select --install
+      refreshBash
+  else
+      echo "Great! Seems like you have installed xCode Command Line Tools"
+  fi
+
+  greenColor
+  echo "Accepting on your behalf the xCodeBuild License"
+  sudo xcodebuild -license accept
+  
+  resetColor
+}
+
+function installBrew() {
+  echo "Installing Brew..."
+  if [ $(which brew) ]; then
+    echo "Installing Brew... Brew is already installed!"
+  else
+    yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    refreshBash
+  fi
+
+  echo
+  echo "Installing Brew... Ensuring you have the latest Brew"
+  brew update
+
+  echo
+  echo "Installing Brew... Ensuring your Brew directory is writable"
+  sudo chown -Rf $(whoami) $(brew --prefix)/*
+
+  echo
+  echo "Installing Brew... tapping cask and versions"
+  brew tap caskroom/cask
+  brew tap caskroom/versions
+
+  echo
+  echo "Installing Brew... Upgrading any existing brews"
+  brew upgrade
+
+  echo
+  echo "Installing Brew... Adding Brew's sbin to PATH"
+  echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
+
+  greenColor
+  echo 
+  echo "Installing Brew... Done"
+  resetColor
+}
+
+function installGit() {
+  echo
+  echo "Installing Git..."
+  brew install git --force #guard against pre-installed version
+  
+  echo
+  echo "Installing Git... Setting global Git configurations"
+  git config --global core.editor /usr/bin/nano #nano comes built in Mac
+  git config --global transfer.fsckobjects true
+
+  echo
+  echo "Installing Git... Setting up Git aliases"
+  git config --global alias.s git status
+
+  greenColor
+  echo 
+  echo "Installing Git... Done"
+  resetColor
+}
 
 if [ "$1" == "start" ]; then
   SCRIPT_START_TIME=$SECONDS
@@ -257,7 +347,7 @@ if [ "$1" == "start" ]; then
   echo "Stage 2: Transitioning to $LOCAL_SETUP_LABS_MAC_GIT_REPO"
   cd "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
   source setupCloudFoundryCli.sh
-  
+
 
 
 else
