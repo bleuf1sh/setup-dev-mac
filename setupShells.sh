@@ -10,7 +10,7 @@ brew install fish
 refreshBash
 
 echo "Setup Shells... Adding Fish to shells"
-addIfNotExistToFile '/usr/local/bin/fish' /etc/shells
+addLineIfNotExistToFile '/usr/local/bin/fish' /etc/shells
 refreshBash
 
 echo "Setup Shells... Adding Fish configs"
