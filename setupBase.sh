@@ -5,6 +5,11 @@ LOCAL_SETUP_LABS_MAC_GIT_REPO=~/setup-labs-mac
 AVAILABLE_TEMP_DIR=~/setup-labs-mac-temp
 mkdir -p $AVAILABLE_TEMP_DIR
 
+if ![[ -e ~/.bash_profile ]]; then
+    echo "Creating .bash_profile because there isn't one"
+    touch ~/.bash_profile
+fi
+
 function printBleuf1sh() {
   echo
   echo '               __   __'
@@ -290,9 +295,11 @@ function installBrew() {
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
-  local brew_sbin_path=/usr/local/sbin
-  if [[ ":$PATH:" != *":$brew_sbin_path:"* ]]; then
+  if grep -q 'export PATH="/usr/local/sbin:$PATH"' ~/.bash_profile; then
+    echo "Installing Brew... Adding Brew's sbin to PATH"
     echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
+  else
+    echo "Installing Brew... Already added Brew's sbin to PATH"
   fi
 
   greenColor
