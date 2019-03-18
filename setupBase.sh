@@ -52,19 +52,21 @@ function refreshBash() {
   fi
 }
 
-function addIfNotExistToBashProfile() {
+# usage: addLineIfNotExistToFile 'some string to append' ~/.bash_profile
+function addLineIfNotExistToFile() {
   local line_to_add=$1
+  local file=$2
 
-  if [ ! -e ~/.bash_profile ]; then
-    echo "Creating .bash_profile because did not exist"
-    touch ~/.bash_profile
+  if [ ! -e $file ]; then
+    echo "Creating $file because did not exist"
+    touch $file
   fi
 
-  if grep -q "$line_to_add" ~/.bash_profile; then
-    echo "already exists in bash_profile: $line_to_add"
+  if grep -q "$line_to_add" $file; then
+    echo "already exists in $file: $line_to_add"
   else
-    echo "adding to bash_profile: $line_to_add"
-    echo "$line_to_add" >> ~/.bash_profile
+    echo "adding to $file: $line_to_add"
+    echo "$line_to_add" | { tee -a $file || sudo tee -a $file ;}
   fi
 }
 
@@ -306,7 +308,7 @@ function installBrew() {
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
-  addIfNotExistToBashProfile 'export PATH="/usr/local/sbin:$PATH"'
+  addIfNotExistToFile 'export PATH="/usr/local/sbin:$PATH"' ~/.bash_profile
 
   greenColor
   echo 
@@ -347,20 +349,15 @@ elif [ "$1" == "start" ]; then
   intro
   askForRequests
 
-  printSpacer
-  acquireSudo
+  printSpacer && acquireSudo
 
-  printSpacer
-  installCommandLineUtils
+  printSpacer && installCommandLineUtils
 
-  printSpacer
-  installBrew
+  printSpacer && installBrew
 
-  printSpacer
-  installGit
+  printSpacer && installGit
 
-  printSpacer
-  cloneSetupLabsMacGitRepo
+  printSpacer && cloneSetupLabsMacGitRepo
 
   printSpacer
   printSpacer
@@ -372,7 +369,12 @@ elif [ "$1" == "start" ]; then
   source setupCloudFoundryCli.sh
   source setupDevLangs.sh
   source setupDevIDEs.sh
-
+  source setupShells.sh
+  source setupIterm.sh
+  source setupMacApps.sh
+  source setupMacConfigs.sh
+  source setupMacDock.sh
+  source setupShells.sh
 
 
 fi

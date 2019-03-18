@@ -1,12 +1,13 @@
 source setupBase.sh loadFuncs
 
+printSpacer
 echo
 echo "Setup Dev IDEs..."
 
 echo
 echo "Setup Dev IDEs... Installing VS Code"
 brew cask install visual-studio-code 
-addIfNotExistToBashProfile 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"'
+addIfNotExistToFile 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"' ~/.bash_profile
   
 echo
 echo "Setup Dev IDEs... Installing JetBrains toolbox"
