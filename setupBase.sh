@@ -138,7 +138,7 @@ function installDmg() {
   local mounted_volume=$(sudo hdiutil attach $full_dmg_file_path | grep "Volumes" | cut -f 3)
   set -x
   if [ -e "$mounted_volume"/*.app ]; then
-    sudo cp -rf "$mounted_volume"/*.app /Applications
+    cp -R -f "$mounted_volume"/*.app /Applications
   elif [ -e "$mounted_volume"/*.pkg ]; then
     package=$(ls -1 "$mounted_volume" | grep .pkg | head -1)
     sudo installer -pkg "$mounted_volume"/"$package" -target /
