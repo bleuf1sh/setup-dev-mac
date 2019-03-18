@@ -12,7 +12,6 @@ brew cask install postman
 
 echo "Setup Mac Apps... Installing Go2Shell"
 brew cask install go2shell
-open "/Applications/Go2Shell.app"
 
 brew cask install flycut
 echo "Setup Mac Apps... Opening Flycut for Manual Config"

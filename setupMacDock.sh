@@ -60,7 +60,7 @@ dockutil --add '/Applications/Google Chrome.app' --no-restart
 dockutil --add '/Applications/Visual Studio Code.app' --no-restart
 dockutil --add '/Applications/IntelliJ IDEA.app' --no-restart
 dockutil --add '/Applications/iTerm.app' --no-restart
-dockutil --add 'Downloads'
+dockutil --add '~/Downloads' --view grid --display folder
 
 
 set -e
