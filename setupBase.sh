@@ -206,7 +206,6 @@ function intro() {
   resetColor
   echo "This script will guide you through the setup of your Labs Mac (:"
   
-  sleep 1
   greenColor
   echo
   read -p "----- PRESS ANY KEY TO CONTINUE -----" throw_away
@@ -238,7 +237,11 @@ function setupDone() {
   echo "Sorry, there are a few manual steps:"
   echo
   echo "-) Setup ShiftIt"
+  echo "   Follow on-screen app instructions"
+  echo
   echo "-) Setup Go2Shell"
+  echo "   In Finder -> hold CMD and drag n drop 'Go2ShellHelper.app' to Finder toolbar (to left of search bar)"
+  echo
   echo "-) In Terminal -> Preferences -> Profiles -> Select Peppermint -> Click 'Default' button"
   echo
   echo "Done :D Please restart the computer to ensure all is well"

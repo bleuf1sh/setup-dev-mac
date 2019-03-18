@@ -7,17 +7,18 @@ echo "Setup Mac Apps..."
 set +e
 
 # Misc
-brew cask install the-unarchiver
-brew cask install postman
+brew cask reinstall the-unarchiver
+brew cask reinstall postman
 
 echo "Setup Mac Apps... Installing Go2Shell"
-brew cask install go2shell
+brew cask reinstall go2shell --force
+open "/Applications/Go2Shell.app/Contents/MacOS/"
 
-brew cask install flycut
+brew cask reinstall flycut --force
 echo "Setup Mac Apps... Opening Flycut for Manual Config"
 open "/Applications/Flycut.app"
 
-brew cask install shiftit
+brew cask reinstall shiftit --force
 echo
 echo "Setup Mac Apps... Configuring shiftit to select 1/3 screen width, 1/2 screen width and 2/3 screen width:"
 echo "`defaults write org.shiftitapp.ShiftIt multipleActionsCycleWindowSizes YES`"
@@ -26,13 +27,13 @@ echo "Setup Mac Apps... Opening ShiftIt for Manual Config"
 open "/Applications/ShiftIt.app"
 
 
-brew cask install slack --force #guard against pre-installed version
-brew cask install docker --force #guard against pre-installed version
+brew cask reinstall slack --force #guard against pre-installed version
+brew cask reinstall docker --force #guard against pre-installed version
 
 # Browsers
-brew cask install firefox --force #guard against pre-installed version
-brew cask install google-chrome --force #guard against pre-installed version
-brew cask install google-chrome-canary --force #guard against pre-installed version
+brew cask reinstall firefox --force #guard against pre-installed version
+brew cask reinstall google-chrome --force #guard against pre-installed version
+brew cask reinstall google-chrome-canary --force #guard against pre-installed version
 echo "Setup Mac Apps... Configuring Google Chrome and Canary"
 # Disable the all too sensitive backswipe on trackpads
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
