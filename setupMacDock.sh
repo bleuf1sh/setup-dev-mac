@@ -51,7 +51,7 @@ dockutil --list | awk -F\t '{print "dockutil --remove \""$1"\" --no-restart"}' |
 # dockutil --add '/Applications/Self Service.app' --no-restart
 dockutil --add '/Applications/System Preferences.app' --no-restart
 dockutil --add '/Applications/Launchpad.app' --no-restart
-dockutil --add '/Applications/Go2Shell.app' --no-restart
+# dockutil --add '/Applications/Go2Shell.app' --no-restart
 dockutil --add '/Applications/Docker.app' --no-restart
 dockutil --add '/Applications/Postman.app' --no-restart
 dockutil --add '/Applications/Firefox.app' --no-restart
