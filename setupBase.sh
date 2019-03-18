@@ -308,7 +308,7 @@ function installBrew() {
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
-  addIfNotExistToFile 'export PATH="/usr/local/sbin:$PATH"' ~/.bash_profile
+  addLineIfNotExistToFile 'export PATH="/usr/local/sbin:$PATH"' ~/.bash_profile
 
   greenColor
   echo 
@@ -374,5 +374,5 @@ elif [ "$1" == "start" ]; then
   source setupMacApps.sh
   source setupMacConfigs.sh
   source setupMacDock.sh
-  
+
 fi
