@@ -236,7 +236,9 @@ function setupDone() {
   echo
   echo "Sorry, there are a few manual steps:"
   echo
-  echo "1) In Terminal -> Preferences -> Profiles -> Select Peppermint -> Click 'Default' button"
+  echo "-) Setup ShiftIt"
+  echo "-) Setup Go2Shell"
+  echo "-) In Terminal -> Preferences -> Profiles -> Select Peppermint -> Click 'Default' button"
   echo
   echo "Done :D Please restart the computer to ensure all is well"
   echo
@@ -375,5 +377,7 @@ elif [ "$1" == "start" ]; then
   source setupMacApps.sh
   source setupMacConfigs.sh
   source setupMacDock.sh
+
+  setupDone
 
 fi

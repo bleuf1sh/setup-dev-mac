@@ -9,6 +9,7 @@ echo "Setup Dev IDEs... Installing VS Code"
 brew cask install visual-studio-code 
 addLineIfNotExistToFile 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"' ~/.bash_profile
 refreshBash
+echo "Setup Dev IDEs... Configuring VS Code"
 code --install-extension Compulim.indent4to2
 code --install-extension k--kato.intellij-idea-keybindings
 mkdir -p ~/"Library/Application Support/Code/User/"

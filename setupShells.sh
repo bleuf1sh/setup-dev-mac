@@ -8,6 +8,7 @@ echo
 echo "Setup Shells... Installing Powerline shell for bash"
 pip3 install powerline-shell
 # Add Powerline Shell config
+mkdir -p ~/.config/powerline-shell
 addLineIfNotExistToFile '
 {
   "segments": [
