@@ -24,6 +24,7 @@ if [ $(n --version && true) ]; then
 else
   echo
   echo "Setup Dev Langs... Installing Node LTS via n"
+  rm -rf ~/n || true #Remove any remnants
   curl -L https://git.io/n-install | bash -s -- -y lts
 fi
 
@@ -43,8 +44,8 @@ else
   echo "sdkman_insecure_ssl=false" >> ~/.sdkman/etc/config
   sleep 5
   refreshBash
-  source ~/.sdkman/bin/sdkman-init.sh || sdk version
 fi
+source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
 
 sdkman_java_version=sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1
