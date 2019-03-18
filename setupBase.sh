@@ -45,19 +45,26 @@ function printSpacer() {
   sleep 1
 }
 
+function refreshBash() {
+  if [[ -e ~/.bash_profile ]]; then
+    echo "sourcing ~/.bash_profile"
+    source ~/.bash_profile
+  fi
+}
+
 function addIfNotExistToBashProfile() {
   local line_to_add=$1
 
-  if [ ! -f ~/.bash_profile ]; then
+  if [ ! -e ~/.bash_profile ]; then
     echo "Creating .bash_profile because did not exist"
     touch ~/.bash_profile
   fi
 
   if grep -q "$line_to_add" ~/.bash_profile; then
+    echo "already exists in bash_profile: $line_to_add"
+  else
     echo "adding to bash_profile: $line_to_add"
     echo "$line_to_add" >> ~/.bash_profile
-  else
-    echo "already exists in bash_profile: $line_to_add"
   fi
 }
 
@@ -81,13 +88,6 @@ function didRequest() {
     *$keyword*) echo "didRequest $1 TRUE"  && return 0;;
     *)    echo "didRequest $1 FALSE" && return 1;;
   esac
-}
-
-function refreshBash() {
-  if [[ -e ~/.bash_profile ]]; then
-    echo "sourcing ~/.bash_profile"
-    source ~/.bash_profile
-  fi
 }
 
 function enableMacSecurity() {
