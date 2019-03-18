@@ -5,12 +5,6 @@ LOCAL_SETUP_LABS_MAC_GIT_REPO=~/setup-labs-mac
 AVAILABLE_TEMP_DIR=~/setup-labs-mac-temp
 mkdir -p $AVAILABLE_TEMP_DIR
 
-if [ ! -f ~/.bash_profile ]; then
-  echo "Creating .bash_profile because there isn't one"
-  touch ~/.bash_profile
-fi
-
-
 function printBleuf1sh() {
   echo
   echo '               __   __'
@@ -49,6 +43,22 @@ function printSpacer() {
   echo "#==========================================================#"
   resetColor
   sleep 1
+}
+
+function addIfNotExistToBashProfile() {
+  local line_to_add=$1
+
+  if [ ! -f ~/.bash_profile ]; then
+    echo "Creating .bash_profile because did not exist"
+    touch ~/.bash_profile
+  fi
+
+  if grep -q "$line_to_add" ~/.bash_profile; then
+    echo "adding to bash_profile: $line_to_add"
+    echo "$line_to_add" >> ~/.bash_profile
+  else
+    echo "already exists in bash_profile: $line_to_add"
+  fi
 }
 
 function askForRequests() {
@@ -296,12 +306,7 @@ function installBrew() {
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
-  if grep -q 'export PATH="/usr/local/sbin:$PATH"' ~/.bash_profile; then
-    echo "Installing Brew... Adding Brew's sbin to PATH"
-    echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
-  else
-    echo "Installing Brew... Already added Brew's sbin to PATH"
-  fi
+  addIfNotExistToBashProfile 'export PATH="/usr/local/sbin:$PATH"'
 
   greenColor
   echo 
@@ -360,5 +365,11 @@ elif [ "$1" == "start" ]; then
   echo
   echo "Stage 2: Transitioning to $LOCAL_SETUP_LABS_MAC_GIT_REPO"
   cd "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+  
   source setupCloudFoundryCli.sh
+  source setupDevLangs.sh
+  source setupDevIDEs.sh
+
+
+
 fi
