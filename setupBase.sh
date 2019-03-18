@@ -71,19 +71,6 @@ function addTextIfKeywordNotExistToFile() {
   fi
 }
 
-function askForAdditionalRequests() {
-  resetColor
-  echo "Write, in a single line, any of these additional items available for install:"
-  echo "    pycharm - Python IDE"
-  echo "    go - this will also install goland (a 'go' IDE)"
-  echo
-  sleep 1
-  greenColor
-  read -p "Additionally Install: [pycharm go]" REQUESTED_ADDITIONAL_INSTALLS
-  echo
-  resetColor
-}
-
 # usage: didRequest pycharm
 function didRequest() {
   local keyword=$1
@@ -221,6 +208,19 @@ function intro() {
     resetColor
     exit 1
   fi
+  resetColor
+}
+
+function askForAdditionalRequests() {
+  resetColor
+  echo "Write, in a single line, any of these additional items available for install:"
+  echo "    pycharm - Python IDE"
+  echo "    go - this will also install goland (a 'go' IDE)"
+  echo
+  sleep 1
+  greenColor
+  read -p "Additionally Install [pycharm go]: " REQUESTED_ADDITIONAL_INSTALLS
+  echo
   resetColor
 }
 
