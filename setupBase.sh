@@ -71,15 +71,15 @@ function addTextIfKeywordNotExistToFile() {
   fi
 }
 
-function askForRequests() {
+function askForAdditionalRequests() {
   resetColor
-  echo "Write, in a single line, any of these additional IDE's available for install:"
-  echo "    pycharm"
-  echo "    goland"
-  echo "for example: 'pycharm goland'"
+  echo "Write, in a single line, any of these additional items available for install:"
+  echo "    pycharm - Python IDE"
+  echo "    go - this will also install goland (a 'go' IDE)"
+  echo
   sleep 1
   greenColor
-  read -p "Additionally Install: " REQUESTED_INSTALLS
+  read -p "Additionally Install: [pycharm go]" REQUESTED_ADDITIONAL_INSTALLS
   echo
   resetColor
 }
@@ -87,7 +87,7 @@ function askForRequests() {
 # usage: didRequest pycharm
 function didRequest() {
   local keyword=$1
-  case "$REQUESTED_INSTALLS" in
+  case "$REQUESTED_ADDITIONAL_INSTALLS" in
     *$keyword*) echo "didRequest $1 TRUE"  && return 0;;
     *)    echo "didRequest $1 FALSE" && return 1;;
   esac
@@ -326,7 +326,7 @@ function installBrew() {
 function installGit() {
   echo
   echo "Installing Git..."
-  brew install git --force #guard against pre-installed version
+  brew reinstall git --force #guard against pre-installed version
   
   echo
   echo "Installing Git... Setting global Git configurations"
@@ -353,8 +353,7 @@ elif [ "$1" == "start" ]; then
   set -e
   trap onSigterm SIGKILL SIGTERM
 
-  intro
-  askForRequests
+  intro && askForAdditionalRequests
 
   printSpacer && acquireSudo
 
@@ -374,8 +373,7 @@ elif [ "$1" == "start" ]; then
   printSpacer
   
   source setupCloudFoundryCli.sh
-  source setupDevLangs.sh
-  source setupDevIDEs.sh
+  source setupDevEnv.sh
   source setupShells.sh
   source setupIterm.sh
   source setupMacApps.sh

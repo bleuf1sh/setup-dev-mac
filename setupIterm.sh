@@ -7,7 +7,7 @@ echo "Setup Iterm..."
 set +e
 
 echo "Setup Iterm... Installing"
-brew cask install iterm2 --force #guard against pre-installed version
+brew cask reinstall iterm2 --force #guard against pre-installed version
 
 redColor
 echo "Setup Iterm... Configuring"

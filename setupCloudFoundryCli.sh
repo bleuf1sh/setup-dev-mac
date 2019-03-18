@@ -5,7 +5,7 @@ echo
 echo "Setup Cloud Foundry CLI..."
 
 brew tap cloudfoundry/tap
-brew install cf-cli --force #guard against pre-installed version
+brew reinstall cf-cli --force #guard against pre-installed version
 
 greenColor
 echo 

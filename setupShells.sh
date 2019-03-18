@@ -26,7 +26,7 @@ refreshBash
 
 echo
 echo "Setup Shells... Installing Fish shell"
-brew install fish
+brew reinstall fish
 refreshBash
 
 echo "Setup Shells... Adding Fish to shells"
