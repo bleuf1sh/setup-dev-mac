@@ -27,8 +27,8 @@ It also configures and installs some additional things to make development easie
 
 ### Shells
 These are pre-configured to have nice GIT prompts and colors 
+- bash [powerline-shell styles on bash](https://github.com/b-ryan/)
 - [fish](https://fishshell.com/) w/ bleuf1sh settings
-- bash [powerline-shell](https://github.com/b-ryan/)
 
 ### CLI's
 - Brew
