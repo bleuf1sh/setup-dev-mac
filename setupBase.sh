@@ -362,9 +362,12 @@ elif [ "$1" == "start" ]; then
   printSpacer
   cloneSetupLabsMacGitRepo
 
-  echo
+  printSpacer
+  printSpacer
   echo "Stage 2: Transitioning to $LOCAL_SETUP_LABS_MAC_GIT_REPO"
   cd "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+  printSpacer
+  printSpacer
   
   source setupCloudFoundryCli.sh
   source setupDevLangs.sh
