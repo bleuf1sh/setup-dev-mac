@@ -66,7 +66,7 @@ function addLineIfNotExistToFile() {
     echo "already exists in $file: $line_to_add"
   else
     echo "adding to $file: $line_to_add"
-    echo "$line_to_add" | { tee -a $file || sudo tee -a $file ;}
+    echo "$line_to_add" | sudo tee -a $file
   fi
 }
 
