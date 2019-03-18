@@ -321,7 +321,10 @@ function installGit() {
   resetColor
 }
 
-if [ "$1" == "start" ]; then
+if [ "$1" == "loadFuncs" ]; then
+  echo "setupBase loaded"
+  
+elif [ "$1" == "start" ]; then
   SCRIPT_START_TIME=$SECONDS
 
   # Fail fast if something goes wrong
@@ -350,9 +353,4 @@ if [ "$1" == "start" ]; then
   echo "Stage 2: Transitioning to $LOCAL_SETUP_LABS_MAC_GIT_REPO"
   cd "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
   source setupCloudFoundryCli.sh
-
-
-
-else
-  echo "setupBase loaded"
 fi

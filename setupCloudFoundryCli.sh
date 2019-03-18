@@ -1,4 +1,3 @@
-echo "in here"
 source setupBase.sh loadFuncs
 
 echo
