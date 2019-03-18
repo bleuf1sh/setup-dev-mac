@@ -1,0 +1,25 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "cmd+=",
+    "command": "editor.action.fontZoomIn",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+-",
+    "command": "editor.action.fontZoomOut",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "alt+cmd+=",
+    "command": "workbench.action.zoomIn"
+  },
+  {
+    "key": "alt+cmd+-",
+    "command": "workbench.action.zoomOut"
+  },
+]
