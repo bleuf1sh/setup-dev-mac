@@ -374,7 +374,5 @@ elif [ "$1" == "start" ]; then
   source setupMacApps.sh
   source setupMacConfigs.sh
   source setupMacDock.sh
-  source setupShells.sh
-
-
+  
 fi
