@@ -236,13 +236,13 @@ function setupDone() {
   echo
   echo "Sorry, there are a few manual steps:"
   echo
-  echo "-) Setup ShiftIt"
+  echo "#) Setup ShiftIt"
   echo "   Follow on-screen app instructions"
   echo
-  echo "-) Setup Go2Shell"
-  echo "   In Finder -> hold CMD and drag n drop 'Go2ShellHelper.app' to Finder toolbar (to left of search bar)"
+  echo "#) Setup Go2Shell"
+  echo "   In Finder -> click 'Go2ShellHelper.app' drag & hold CMD -> drop into Finder toolbar (to left of search bar)"
   echo
-  echo "-) In Terminal -> Preferences -> Profiles -> Select Peppermint -> Click 'Default' button"
+  echo "#) In Terminal -> Preferences -> Profiles -> Select Peppermint -> Click 'Default' button"
   echo
   echo "Done :D Please restart the computer to ensure all is well"
   echo
