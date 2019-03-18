@@ -2,7 +2,7 @@
 ## Simple one-liner auto magic setup for programming on a Mac in ~10min
 copy/paste this line into terminal (bash) and run
 ```
-curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupLabsMac.sh?$(date +%s)" > setupLabsMac.sh && bash setupLabsMac.sh
+curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupBase.sh?$(date +%s)" > setupLabsMac.sh && bash setupBase.sh start
 ```
 
 ## What makes this different than other auto magical setups out there
@@ -17,7 +17,7 @@ It also configures and installs some additional things to make development easie
 - Gradle 5.2.x [via sdk man](https://sdkman.io/)
 - SpringBoot 2.1.x [via sdk man](https://sdkman.io/)
 - Node LTS [via n](https://github.com/tj/n)
-- Python3
+- Python3 [via brew](https://brew.sh/)
 
 ### IDE's
 - VS Code
@@ -46,7 +46,7 @@ It also configures and installs some additional things to make development easie
 - ShiftIt
 - The Unarchiver
 
-### Notes
+### Additional Changes
 - all hidden files are made visible in Finder
 - ability to open a terminal from Finder
 - default Mac dock is scrubbed of all distractions
@@ -58,6 +58,7 @@ It also configures and installs some additional things to make development easie
 </br>
 
 ## Inspired by
+- https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos
 - https://github.com/pivotal/workstation-setup
 - https://github.com/ghaiklor/iterm-fish-fisher-osx
 </br></br></br></br></br></br>
