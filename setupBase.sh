@@ -143,6 +143,7 @@ function installDmg() {
     package=$(ls -1 "$mounted_volume" | grep .pkg | head -1)
     sudo installer -pkg "$mounted_volume"/"$package" -target /
   fi
+  sleep 5
   sudo hdiutil detach "$mounted_volume"
   set +x
   echo "installDmg... Done"
