@@ -11,6 +11,10 @@ addTextIfKeywordNotExistToFile ~/.bash_profile 'export PATH="/Applications/Visua
 refreshBash
 echo "Setup Dev IDEs... Configuring VS Code"
 code --install-extension Compulim.indent4to2
+code --install-extension oderwat.indent-rainbow
+code --install-extension ms-python.python
+code --install-extension ms-vscode.go
+code --install-extension peterjausovec.vscode-docker
 code --install-extension k--kato.intellij-idea-keybindings
 mkdir -p ~/"Library/Application Support/Code/User/"
 cp -rf "$LOCAL_SETUP_LABS_MAC_GIT_REPO/vscode/." ~/"Library/Application Support/Code/User"
