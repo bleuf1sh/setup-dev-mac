@@ -380,5 +380,4 @@ elif [ "$1" == "start" ]; then
   source setupMacDock.sh
 
   setupDone
-
 fi
