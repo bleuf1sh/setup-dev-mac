@@ -280,17 +280,20 @@ function installBrew() {
   sudo chown -Rf $(whoami) $(brew --prefix)/*
 
   echo
-  echo "Installing Brew... tapping cask and versions"
+  echo "Installing Brew... Tapping cask and versions"
   brew tap caskroom/cask
   brew tap caskroom/versions
 
-  echo
-  echo "Installing Brew... Upgrading any existing brews"
-  brew upgrade
+  # echo
+  # echo "Installing Brew... Upgrading any existing brews"
+  # brew upgrade
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
-  echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
+  local brew_sbin_path=/usr/local/sbin
+  if [[ ":$PATH:" != *":$brew_sbin_path:"* ]]; then
+    echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
+  fi
 
   greenColor
   echo 
