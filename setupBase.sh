@@ -5,10 +5,11 @@ LOCAL_SETUP_LABS_MAC_GIT_REPO=~/setup-labs-mac
 AVAILABLE_TEMP_DIR=~/setup-labs-mac-temp
 mkdir -p $AVAILABLE_TEMP_DIR
 
-if ![[ -e ~/.bash_profile ]]; then
-    echo "Creating .bash_profile because there isn't one"
-    touch ~/.bash_profile
+if [ ! -f ~/.bash_profile ]; then
+  echo "Creating .bash_profile because there isn't one"
+  touch ~/.bash_profile
 fi
+
 
 function printBleuf1sh() {
   echo
