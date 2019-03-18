@@ -9,7 +9,6 @@ set +e
 echo "Setup Iterm... Installing"
 brew cask reinstall iterm2 --force #guard against pre-installed version
 
-redColor
 echo "Setup Iterm... Configuring"
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
