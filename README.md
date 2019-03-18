@@ -25,6 +25,11 @@ It also configures and installs some additional things to make development easie
 - *PyCharm w/ Pivotal IDE Prefs
 - *goland w/ Pivotal IDE Prefs
 
+### Shells
+These are pre-configured to have nice GIT prompts and colors 
+- [fish](https://fishshell.com/) w/ bleuf1sh settings
+- bash [powerline-shell](https://github.com/b-ryan/)
+
 ### CLI's
 - Brew
 - Git
