@@ -52,18 +52,19 @@ function refreshBash() {
   fi
 }
 
-# usage: addLineIfNotExistToFile 'some string to append' ~/.bash_profile
-function addLineIfNotExistToFile() {
-  local line_to_add=$1
-  local file=$2
+# usage: addTextIfKeywordNotExistToFile ~/path/to/file 'keyword' 'some string to append' 
+function addTextIfKeywordNotExistToFile() {
+  local file=$1
+  local keyword=$2
+  local line_to_add=$3
 
   if [ ! -e $file ]; then
     echo "Creating $file because did not exist"
     touch $file
   fi
 
-  if grep -q "$line_to_add" $file; then
-    echo "already exists in $file: $line_to_add"
+  if grep -q "$keyword" $file; then
+    echo "$keyword already exists in $file: $line_to_add"
   else
     echo "adding to $file: $line_to_add"
     echo "$line_to_add" | sudo tee -a $file
@@ -311,7 +312,7 @@ function installBrew() {
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
-  addLineIfNotExistToFile 'export PATH="/usr/local/sbin:$PATH"' ~/.bash_profile
+  addTextIfKeywordNotExistToFile ~/.bash_profile 'export PATH="/usr/local/sbin:$PATH"' 'export PATH="/usr/local/sbin:$PATH"' 
 
   greenColor
   echo 

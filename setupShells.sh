@@ -9,35 +9,10 @@ echo "Setup Shells... Installing Powerline shell for bash"
 pip3 install powerline-shell
 # Add Powerline Shell config
 mkdir -p ~/.config/powerline-shell
-addLineIfNotExistToFile '
-{
-  "segments": [
-    "virtual_env",
-    "aws_profile",
-    "ssh",
-    "cwd",
-    "git",
-    "git_stash",
-    "jobs",
-    "set_term_title",
-    "svn",
-    "newline",
-    "root"
-  ],
-  "mode": "flat",
-  "cwd": {
-    "mode": "plain",
-    "max_depth": 5
-  },
-  "vcs": {
-    "show_symbol": false
-  }
-  "theme": "gruvbox"
-}
-' ~/.config/powerline-shell/config.json
+cp -rf "$LOCAL_SETUP_LABS_MAC_GIT_REPO/powerline-shell/." ~/.config/powerline-shell
 
 # Add Powerline Shell to bash profile
-addLineIfNotExistToFile '
+addTextIfKeywordNotExistToFile ~/.bash_profile 'powerline-shell' '
 function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
@@ -45,7 +20,7 @@ function _update_ps1() {
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-' ~/.bash_profile
+' 
 
 
 echo
@@ -54,7 +29,7 @@ brew install fish
 refreshBash
 
 echo "Setup Shells... Adding Fish to shells"
-addLineIfNotExistToFile '/usr/local/bin/fish' /etc/shells
+addTextIfKeywordNotExistToFile /etc/shells '/usr/local/bin/fish' '/usr/local/bin/fish'
 refreshBash
 
 echo "Setup Shells... Adding Fish configs"
