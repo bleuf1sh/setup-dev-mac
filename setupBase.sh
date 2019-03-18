@@ -229,6 +229,7 @@ function setupDone() {
 
   echo "Cleaning up your Brew installation..."
   brew cleanup
+  brew doctor
 
   greenColor
   printBleuf1sh

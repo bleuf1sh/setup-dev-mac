@@ -49,11 +49,22 @@ These are pre-configured to have nice GIT prompts and colors
 - Go2Shell
 - FlyCut
 - ShiftIt
+- f.lux
+- Sequel Pro
+- VLC
 - The Unarchiver
 
 ### Additional Changes
-- all hidden files are made visible in Finder
-- ability to open a terminal from Finder
+- Prevent horizontal scrolling causing backwards navigation on Chrome
+- Finder shows all hidden files
+- Finder shows all drives
+- Finder shows status bar
+- Finder shows path bar
+- Finder shows path in window title
+- Lots of Safari changes
+- faster default key repeat rate
+- trackpad tap as a click is enabled
+- ability to open a terminal from Finder via Go2Shell
 - default Mac dock is scrubbed of all distractions
 - custom Peppermint color in terminals for better readability
 
