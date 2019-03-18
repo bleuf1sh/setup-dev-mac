@@ -48,15 +48,15 @@ fi
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
 
-sdkman_java_version=sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1
+sdkman_java_version=$(sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1)
 echo "Setup Dev Langs... Installing java $sdkman_java_version"
 sdk install java "$sdkman_java_version"
 
-sdkman_gradle_version=sdk list gradle | tr " " "\n" | grep -o "^5.2.*" | head -1
+sdkman_gradle_version=$(sdk list gradle | tr " " "\n" | grep -o "^5.2.*" | head -1)
 echo "Setup Dev Langs... Installing gradle $sdkman_gradle_version"
 sdk install gradle "$sdkman_gradle_version"
 
-sdkman_springboot_version=sdk list springboot | tr " " "\n" | grep -o "^2.1.*" | head -1
+sdkman_springboot_version=$(sdk list springboot | tr " " "\n" | grep -o "^2.1.*" | head -1)
 echo "Setup Dev Langs... Installing SpringBoot $sdkman_springboot_version"
 sdk install springboot "$sdkman_springboot_version"
 
