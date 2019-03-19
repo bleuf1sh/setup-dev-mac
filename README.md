@@ -20,7 +20,7 @@ It also configures and installs some additional things to make development easie
 - Python3 [via brew](https://brew.sh/)
 
 ### IDE's
-- VS Code
+- VS Code w/ IntelliJ Keybindings
 - IntelliJ w/ Pivotal IDE Prefs
 - *PyCharm w/ Pivotal IDE Prefs
 - *goland w/ Pivotal IDE Prefs
@@ -29,6 +29,7 @@ It also configures and installs some additional things to make development easie
 These are pre-configured to have nice GIT prompts and colors 
 - bash [powerline-shell styles on bash](https://github.com/b-ryan/)
 - [fish](https://fishshell.com/) w/ bleuf1sh settings
+  note: bash remains the default shell... from any shell type 'fish' to start fish
 
 ### CLI's
 - Brew
