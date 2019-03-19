@@ -9,7 +9,7 @@ echo "Setup Shells... Installing Powerline shell for bash"
 pip3 install powerline-shell
 # Add Powerline Shell config
 mkdir -p ~/.config/powerline-shell
-cp -rf "$LOCAL_SETUP_LABS_MAC_GIT_REPO/powerline-shell/." ~/.config/powerline-shell
+cp -rf "$LOCAL_SETUP_DEV_MAC_GIT_REPO/powerline-shell/." ~/.config/powerline-shell
 
 # Add Powerline Shell to bash profile
 addTextIfKeywordNotExistToFile ~/.bash_profile 'powerline-shell' '
@@ -35,7 +35,7 @@ refreshBash
 
 echo "Setup Shells... Adding Fish configs"
 mkdir -p ~/.config/fish
-cp -rf "$LOCAL_SETUP_LABS_MAC_GIT_REPO/fish/." ~/.config/fish
+cp -rf "$LOCAL_SETUP_DEV_MAC_GIT_REPO/fish/." ~/.config/fish
 
 echo "Setup Shells... Installing fisher for fish"
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish

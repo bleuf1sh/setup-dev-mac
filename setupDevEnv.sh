@@ -67,7 +67,7 @@ code --install-extension ms-vscode.go
 code --install-extension peterjausovec.vscode-docker
 code --install-extension k--kato.intellij-idea-keybindings
 mkdir -p ~/"Library/Application Support/Code/User/"
-cp -rf "$LOCAL_SETUP_LABS_MAC_GIT_REPO/vscode/." ~/"Library/Application Support/Code/User"
+cp -rf "$LOCAL_SETUP_DEV_MAC_GIT_REPO/vscode/." ~/"Library/Application Support/Code/User"
   
 echo
 echo "Setup Dev Env... Installing JetBrains toolbox"

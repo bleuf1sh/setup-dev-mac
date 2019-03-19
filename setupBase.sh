@@ -1,8 +1,8 @@
 #!/bin/bash
-# License located at https://github.com/bleuf1sh/setup-labs-mac
+# License located at https://github.com/bleuf1sh/setup-dev-mac
 
-LOCAL_SETUP_LABS_MAC_GIT_REPO=~/setup-labs-mac
-AVAILABLE_TEMP_DIR=~/setup-labs-mac-temp
+LOCAL_SETUP_DEV_MAC_GIT_REPO=~/setup-dev-mac
+AVAILABLE_TEMP_DIR=~/setup-dev-mac-temp
 mkdir -p $AVAILABLE_TEMP_DIR
 
 function printBleuf1sh() {
@@ -173,7 +173,7 @@ function downloadFile() {
   echo "$full_file_path"
 }
 
-# usage: installDmg /Users/username/dev/setup-labs-mac/temp/git-latest.dmg
+# usage: installDmg /Users/username/dev/setup-dev-mac/temp/git-latest.dmg
 function installDmg() {
   local full_dmg_file_path=$1
 
@@ -218,26 +218,26 @@ function installPivotalIdePrefs() {
   popd
 }
 
-function cloneSetupLabsMacGitRepo() {
+function cloneSetupDevMacGitRepo() {
   echo
-  echo "Clone Setup Labs Mac Git Repo..."
+  echo "Clone Setup Dev Mac Git Repo..."
   
-  if [ ! -d "$LOCAL_SETUP_LABS_MAC_GIT_REPO" ]; then
-    mkdir -p "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+  if [ ! -d "$LOCAL_SETUP_DEV_MAC_GIT_REPO" ]; then
+    mkdir -p "$LOCAL_SETUP_DEV_MAC_GIT_REPO"
     echo
-    echo "Downloading Setup Labs Mac Git Repo"
-    git clone https://github.com/bleuf1sh/setup-labs-mac.git "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+    echo "Downloading Setup Dev Mac Git Repo"
+    git clone https://github.com/bleuf1sh/setup-dev-mac.git "$LOCAL_SETUP_DEV_MAC_GIT_REPO"
   else
     echo
-    echo "Syncing Setup Labs Mac Git Repo..."
-    pushd "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+    echo "Syncing Setup Dev Mac Git Repo..."
+    pushd "$LOCAL_SETUP_DEV_MAC_GIT_REPO"
     git pull -r
     popd
   fi
 
   greenColor
   echo 
-  echo "Clone Setup Labs Mac Git Repo... Done"
+  echo "Clone Setup Dev Mac Git Repo... Done"
   resetColor
 }
 
@@ -247,7 +247,7 @@ function intro() {
   printBleuf1sh
 
   resetColor
-  echo "This script will guide you through the setup of your Labs Mac (:"
+  echo "This script will guide you through the setup of your Dev Mac (:"
   
   greenColor
   echo
@@ -427,12 +427,12 @@ elif [ "$1" == "start" ]; then
 
   printSpacer && installGit
 
-  printSpacer && cloneSetupLabsMacGitRepo
+  printSpacer && cloneSetupDevMacGitRepo
 
   printSpacer
   printSpacer
-  echo "Stage 2: Transitioning to $LOCAL_SETUP_LABS_MAC_GIT_REPO"
-  cd "$LOCAL_SETUP_LABS_MAC_GIT_REPO"
+  echo "Stage 2: Transitioning to $LOCAL_SETUP_DEV_MAC_GIT_REPO"
+  cd "$LOCAL_SETUP_DEV_MAC_GIT_REPO"
   printSpacer
   printSpacer
   
