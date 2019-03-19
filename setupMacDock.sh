@@ -59,7 +59,6 @@ dockutil --add '/Applications/Slack.app' --no-restart
 dockutil --add '/Applications/Google Chrome Canary.app' --no-restart
 dockutil --add '/Applications/Google Chrome.app' --no-restart
 dockutil --add '/Applications/Visual Studio Code.app' --no-restart
-dockutil --add '/Applications/IntelliJ IDEA.app' --no-restart
 if didRequest "intellij-ce"; then
   dockutil --add '/Applications/IntelliJ IDEA CE.app' --no-restart
 fi

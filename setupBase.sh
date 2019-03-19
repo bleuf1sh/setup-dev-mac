@@ -52,6 +52,14 @@ function refreshBash() {
   fi
 }
 
+# usage: openAppSleepThenQuit 'Calendar'
+function openAppSleepThenQuit() {
+  local app_name=$1
+  open -a "$app_name"
+  sleep 5
+  osascript -e "quit app \"$app_name\""
+}
+
 # usage: addTextIfKeywordNotExistToFile ~/path/to/file 'keyword' 'some string to append' 
 function addTextIfKeywordNotExistToFile() {
   local file=$1
