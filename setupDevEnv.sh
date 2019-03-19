@@ -78,7 +78,8 @@ if didRequest "intellij_ce"; then
   echo "Setup Dev Env... Installing IntelliJ Community Edition"
   brew cask reinstall intellij-idea-ce --force #guard against pre-installed intellij-idea-ce
   refreshBash
-  openAppSleepThenQuit 'IntelliJ IDEA CE' #necessary to force the app to create a prefs file to allow our prefs injection
+  #necessary to force the app to create a prefs file to allow our prefs injection
+  openAppSleepThenQuit 'IntelliJ IDEA CE'
   installPivotalIdePrefs intellijcommunity
 fi
 
@@ -87,7 +88,8 @@ if didRequest "intellij_pro"; then
   echo "Setup Dev Env... Installing IntelliJ Professional"
   brew cask reinstall intellij-idea --force #guard against pre-installed intellij-idea
   refreshBash
-  openAppSleepThenQuit 'IntelliJ IDEA'#necessary to force the app to create a prefs file to allow our prefs injection
+  #necessary to force the app to create a prefs file to allow our prefs injection
+  openAppSleepThenQuit 'IntelliJ IDEA'
   installPivotalIdePrefs intellij
 fi
 
@@ -96,7 +98,8 @@ if didRequest "pycharm_ce"; then
   echo "Setup Dev Env... Installing PyCharm Community Edition (free Python IDE)"
   brew cask reinstall pycharm-ce --force #guard against pre-installed pycharm-ce
   refreshBash
-  openAppSleepThenQuit 'PyCharm CE'#necessary to force the app to create a prefs file to allow our prefs injection
+  #necessary to force the app to create a prefs file to allow our prefs injection
+  openAppSleepThenQuit 'PyCharm CE'
   installPivotalIdePrefs pycharm
 fi
 
@@ -105,7 +108,8 @@ if didRequest "pycharm_pro"; then
   echo "Setup Dev Env... Installing PyCharm Professional (paid Python IDE)"
   brew cask reinstall pycharm --force #guard against pre-installed pycharm
   refreshBash
-  openAppSleepThenQuit 'PyCharm'#necessary to force the app to create a prefs file to allow our prefs injection
+  #necessary to force the app to create a prefs file to allow our prefs injection
+  openAppSleepThenQuit 'PyCharm'
   installPivotalIdePrefs pycharm
 fi
 
@@ -114,7 +118,8 @@ if didRequest "webstorm"; then
   echo "Setup Dev Env... Installing WebStorm (paid JavaScript IDE)"
   brew cask reinstall webstorm --force #guard against pre-installed webstorm
   refreshBash
-  openAppSleepThenQuit 'WebStorm'#necessary to force the app to create a prefs file to allow our prefs injection
+  #necessary to force the app to create a prefs file to allow our prefs injection
+  openAppSleepThenQuit 'WebStorm'
   installPivotalIdePrefs webstorm
 fi
 
@@ -131,7 +136,8 @@ if didRequest "goland_ide"; then
   echo "Setup Dev Env... Installing GoLand (paid Go IDE)"
   brew cask reinstall goland --force #guard against pre-installed goland
   refreshBash
-  openAppSleepThenQuit 'GoLand'#necessary to force the app to create a prefs file to allow our prefs injection
+  #necessary to force the app to create a prefs file to allow our prefs injection
+  openAppSleepThenQuit 'GoLand'
   installPivotalIdePrefs goland
 fi
 
