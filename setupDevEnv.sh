@@ -73,7 +73,7 @@ echo
 echo "Setup Dev Env... Installing JetBrains toolbox"
 brew cask reinstall jetbrains-toolbox --force #guard against pre-installed jetbrains-toolbox
 
-if didRequest "intellij-ce"; then
+if didRequest "intellij_ce"; then
   echo
   echo "Setup Dev Env... Installing IntelliJ Community Edition"
   brew cask reinstall intellij-idea-ce --force #guard against pre-installed intellij-idea-ce
@@ -82,7 +82,7 @@ if didRequest "intellij-ce"; then
   installPivotalIdePrefs intellijcommunity
 fi
 
-if didRequest "intellij-pro"; then
+if didRequest "intellij_pro"; then
   echo
   echo "Setup Dev Env... Installing IntelliJ Professional"
   brew cask reinstall intellij-idea --force #guard against pre-installed intellij-idea
@@ -91,7 +91,7 @@ if didRequest "intellij-pro"; then
   installPivotalIdePrefs intellij
 fi
 
-if didRequest "pycharm-ce"; then
+if didRequest "pycharm_ce"; then
   echo
   echo "Setup Dev Env... Installing PyCharm Community Edition (free Python IDE)"
   brew cask reinstall pycharm-ce --force #guard against pre-installed pycharm-ce
@@ -100,7 +100,7 @@ if didRequest "pycharm-ce"; then
   installPivotalIdePrefs pycharm
 fi
 
-if didRequest "pycharm-pro"; then
+if didRequest "pycharm_pro"; then
   echo
   echo "Setup Dev Env... Installing PyCharm Professional (paid Python IDE)"
   brew cask reinstall pycharm --force #guard against pre-installed pycharm
@@ -126,7 +126,7 @@ if didRequest "golang"; then
   brew reinstall dep --force #guard against pre-installed version
 fi
 
-if didRequest "goland-ide"; then
+if didRequest "goland_ide"; then
   echo
   echo "Setup Dev Env... Installing GoLand (paid Go IDE)"
   brew cask reinstall goland --force #guard against pre-installed goland
