@@ -22,6 +22,52 @@ function printBleuf1sh() {
   echo 
 }
 
+function printSitBackWatchAndEnjoy() {
+  echo
+  echo
+  echo "                      o"
+  echo "             o       /"
+  echo "              \     /"
+  echo "               \   /"
+  echo "                \ /"
+  echo "  +--------------v-------------+"
+  echo "  |  __________________      @ |"
+  echo "  | /                  \       |"
+  echo "  | |     Sit Back     |  (\)  |"
+  echo "  | |       Watch      |       |"
+  echo "  | |         +        |  (-)  |"
+  echo "  | |      ENJOY!!     |       |"
+  echo "  | \                  / :|||: |"
+  echo "  |  -ooo--------------  :|||: |"
+  echo "  +----------------------------+"
+  echo "     []                    []"
+  echo
+  echo
+}
+
+function printTheEndCredits() {
+  echo
+  echo
+  echo "                      o"
+  echo "             o       /"
+  echo "              \     /"
+  echo "               \   /"
+  echo "                \ /"
+  echo "  +--------------v-------------+"
+  echo "  |  __________________      @ |"
+  echo "  | /                  \       |"
+  echo "  | |      the end     |  (\)  |"
+  echo "  | |                  |       |"
+  echo "  | |      credits:    |  (-)  |"
+  echo "  | |      bleuf1sh    |       |"
+  echo "  | \                  / :|||: |"
+  echo "  |  -ooo--------------  :|||: |"
+  echo "  +----------------------------+"
+  echo "     []                    []"
+  echo
+  echo
+}
+
 function resetColor() {
   echo -e "\033[0m\c"
 }
@@ -240,14 +286,14 @@ function askForAdditionalRequests() {
 }
 
 function setupDone() {
+  set +e
   enableMacSecurity
 
   echo "Cleaning up your Brew installation..."
   brew cleanup
-  brew doctor
 
   greenColor
-  printBleuf1sh
+  printTheEndCredits
   
   echo
   echo "Sorry, there are a few manual steps:"
@@ -278,29 +324,6 @@ function acquireSudo() {
   disableMacSecurity
   # Keep-alive: update existing `sudo` time stamp until script has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-}
-
-function sitBackAndRelax() {
-  echo
-  echo
-  echo "                      o"
-  echo "             o       /"
-  echo "              \     /"
-  echo "               \   /"
-  echo "                \ /"
-  echo "  +--------------v-------------+"
-  echo "  |  __________________      @ |"
-  echo "  | /                  \       |"
-  echo "  | |     Sit Back     |  (\)  |"
-  echo "  | |       Watch      |       |"
-  echo "  | |         +        |  (-)  |"
-  echo "  | |      ENJOY!!     |       |"
-  echo "  | \                  / :|||: |"
-  echo "  |  -ooo--------------  :|||: |"
-  echo "  +----------------------------+"
-  echo "     []                    []"
-  echo
-  echo
 }
 
 function installCommandLineUtils() {
@@ -396,7 +419,7 @@ elif [ "$1" == "start" ]; then
 
   printSpacer && acquireSudo
 
-  sitBackAndRelax && sleep 3
+  printSitBackWatchAndEnjoy && sleep 3
 
   printSpacer && installCommandLineUtils
 
