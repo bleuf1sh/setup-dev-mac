@@ -278,6 +278,29 @@ function acquireSudo() {
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
+function sitBackAndRelax() {
+  echo
+  echo
+  echo "                    o"
+  echo "           o       /"
+  echo "            \     /"
+  echo "             \   /"
+  echo "              \ /"
+  echo "+--------------v-------------+"
+  echo "|  __________________      @ |"
+  echo "| /                  \       |"
+  echo "| |     Sit Back     |  (\)  |"
+  echo "| |       Watch      |       |"
+  echo "| |         +        |  (-)  |"
+  echo "| |      ENJOY!!     |       |"
+  echo "| \                  / :|||: |"
+  echo "|  -ooo--------------  :|||: |"
+  echo "+----------------------------+"
+  echo "   []                    []"
+  echo
+  echo
+}
+
 function installCommandLineUtils() {
   echo "Trying to detect installed xCode Command Line Tools..."
 
@@ -370,6 +393,8 @@ elif [ "$1" == "start" ]; then
   intro && askForAdditionalRequests
 
   printSpacer && acquireSudo
+
+  sitBackAndRelax && sleep 3
 
   printSpacer && installCommandLineUtils
 
