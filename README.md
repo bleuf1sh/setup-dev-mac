@@ -2,7 +2,7 @@
 ## Simple one-liner auto magic setup for development/programming on a Mac in ~10min
 copy/paste this line into terminal (bash) and run
 ```
-curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupBase.sh?$(date +%s)" > setupBase.sh && bash setupBase.sh start
+curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-dev-mac/master/setupBase.sh?$(date +%s)" > setupBase.sh && bash setupBase.sh start
 ```
 
 ## What makes this different than other auto magical setups out there
