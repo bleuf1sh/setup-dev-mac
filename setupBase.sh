@@ -292,9 +292,10 @@ function setupDone() {
   echo "Cleaning up your Brew installation..."
   brew cleanup
 
-  greenColor
+  blueColor
   printTheEndCredits
   
+  greenColor
   echo
   echo "Sorry, there are a few manual steps:"
   echo
@@ -370,10 +371,6 @@ function installBrew() {
   echo "Installing Brew... Tapping cask and versions"
   brew tap caskroom/cask
   brew tap caskroom/versions
-
-  # echo
-  # echo "Installing Brew... Upgrading any existing brews"
-  # brew upgrade
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
