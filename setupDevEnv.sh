@@ -76,12 +76,20 @@ brew cask reinstall jetbrains-toolbox --force #guard against pre-installed jetbr
 echo
 echo "Setup Dev Env... Installing IntelliJ"
 brew cask reinstall intellij-idea --force #guard against pre-installed intellij
+refreshBash
 installPivotalIdePrefs intellij
+
+echo
+echo "Setup Dev Env... Installing WebStorm"
+brew cask reinstall webstorm --force #guard against pre-installed webstorm
+refreshBash
+installPivotalIdePrefs webstorm
 
 if didRequest "pycharm"; then
   echo
   echo "Setup Dev Env... Installing PyCharm (Python IDE)"
   brew cask reinstall pycharm --force #guard against pre-installed pycharm
+  refreshBash
   installPivotalIdePrefs pycharm
 fi
 
@@ -94,6 +102,7 @@ if didRequest "go"; then
   echo
   echo "Setup Dev Env... Installing GoLand (Go IDE)"
   brew cask reinstall goland --force #guard against pre-installed goland
+  refreshBash
   installPivotalIdePrefs goland
 fi
 

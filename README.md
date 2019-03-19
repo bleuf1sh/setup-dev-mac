@@ -1,16 +1,16 @@
-# setup-labs-mac
-## Simple one-liner auto magic setup for programming on a Mac in ~10min
+# setup-dev-mac
+## Simple one-liner auto magic setup for development/programming on a Mac in ~10min
 copy/paste this line into terminal (bash) and run
 ```
 curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-labs-mac/master/setupBase.sh?$(date +%s)" > setupBase.sh && bash setupBase.sh start
 ```
 
 ## What makes this different than other auto magical setups out there
-After using the others, it was difficult to switch to a different version of what was installed. For example, switching between different versions of node or switching from using OracleJDK to OpenJDK was extremely challenging.
+After using other setup scripts, it was difficult to switch to a different version of what was installed. For example, switching between different versions of node or switching from using OracleJDK to OpenJDK was extremely challenging.
 
 Therefore, this scripts primary differentiator is it tries to use an already available version manager when installing different tools or languages to ease transitioning to a different version later, if desired.
 
-It also configures and installs some additional things to make development easier.
+It also configures and installs some additional things to make developers feel warm and cozy.
 
 ### Dev langs + tooling
 - OpenJDK 11.x [via sdk man](https://sdkman.io/)
@@ -21,9 +21,10 @@ It also configures and installs some additional things to make development easie
 
 ### IDE's
 - VS Code w/ IntelliJ Keybindings
-- IntelliJ w/ Pivotal IDE Prefs
-- *PyCharm w/ Pivotal IDE Prefs
-- *goland w/ Pivotal IDE Prefs
+- IntelliJ w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- WebStorm w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- *PyCharm w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- *goland  w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
 
 ### Shells
 These are pre-configured to have nice GIT prompts and colors 
