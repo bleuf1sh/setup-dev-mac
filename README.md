@@ -5,6 +5,16 @@ copy/paste this line into terminal (bash) and run
 curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-dev-mac/master/setupBase.sh?$(date +%s)" > setupBase.sh && bash setupBase.sh start
 ```
 
+Setup
+![Setup](demo-images/install.png?raw=true "Setup")
+Dock Before and After
+![Dock Before and After](demo-images/dock.gif?raw=true "Dock Before and After")
+Finder Before and After
+![Finder Before and After](demo-images/finder.gif?raw=true "Finder Before and After")
+Terminal Before and After
+![Terminal Before and After](demo-images/terminal.gif?raw=true "Terminal Before and After")
+
+
 ## What makes this different than other auto magical setups out there
 After using other setup scripts, it was difficult to switch to a different version of what was installed. For example, switching between different versions of node or switching from using OracleJDK to OpenJDK was extremely challenging.
 
@@ -18,7 +28,9 @@ It also configures and installs some additional things to make developers feel w
 - SpringBoot 2.1.x [via sdk man](https://sdkman.io/)
 - Node LTS [via n](https://github.com/tj/n)
 - Python3 [via brew](https://brew.sh/)
-- Go [via brew](https://brew.sh/)
+- **Go [via brew](https://brew.sh/)
+
+** optional
 
 ### Dev IDE's
 - VS Code w/ IntelliJ Keybindings
