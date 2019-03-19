@@ -55,6 +55,8 @@ function refreshBash() {
 # usage: openAppSleepThenQuit 'Calendar'
 function openAppSleepThenQuit() {
   local app_name=$1
+  echo "openAppSleepThenQuit: $app_name"
+  sleep 3
   open -a "$app_name"
   sleep 5
   osascript -e "quit app \"$app_name\""
