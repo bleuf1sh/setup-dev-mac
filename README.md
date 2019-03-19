@@ -12,18 +12,21 @@ Therefore, this scripts primary differentiator is it tries to use an already ava
 
 It also configures and installs some additional things to make developers feel warm and cozy.
 
-### Dev langs + tooling
+### Dev Languages
 - OpenJDK 11.x [via sdk man](https://sdkman.io/)
 - Gradle 5.2.x [via sdk man](https://sdkman.io/)
 - SpringBoot 2.1.x [via sdk man](https://sdkman.io/)
 - Node LTS [via n](https://github.com/tj/n)
 - Python3 [via brew](https://brew.sh/)
+- Go [via brew](https://brew.sh/)
 
-### IDE's
+### Dev IDE's
 - VS Code w/ IntelliJ Keybindings
-- IntelliJ w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
-- WebStorm w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
-- *PyCharm w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- *IntelliJ Community Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- *IntelliJ Ultimate Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- *PyCharm Community Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- *PyCharm Professional Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- *WebStorm w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
 - *goland  w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
 
 ### Shells

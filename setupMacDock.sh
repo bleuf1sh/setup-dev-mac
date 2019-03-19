@@ -60,6 +60,24 @@ dockutil --add '/Applications/Google Chrome Canary.app' --no-restart
 dockutil --add '/Applications/Google Chrome.app' --no-restart
 dockutil --add '/Applications/Visual Studio Code.app' --no-restart
 dockutil --add '/Applications/IntelliJ IDEA.app' --no-restart
+if didRequest "intellij-ce"; then
+  dockutil --add '/Applications/IntelliJ IDEA CE.app' --no-restart
+fi
+if didRequest "intellij-pro"; then
+  dockutil --add '/Applications/IntelliJ IDEA.app' --no-restart
+fi
+if didRequest "pycharm-ce"; then
+  dockutil --add '/Applications/PyCharm CE.app' --no-restart
+fi
+if didRequest "pycharm-pro"; then
+  dockutil --add '/Applications/PyCharm.app' --no-restart
+fi
+if didRequest "webstorm"; then
+  dockutil --add '/Applications/WebStorm.app' --no-restart
+fi
+if didRequest "goland-ide"; then
+  dockutil --add '/Applications/GoLand.app' --no-restart
+fi
 dockutil --add '/Applications/iTerm.app' --no-restart
 dockutil --add '~/Downloads' --view grid --display folder
 

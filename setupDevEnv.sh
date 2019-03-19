@@ -73,34 +73,57 @@ echo
 echo "Setup Dev Env... Installing JetBrains toolbox"
 brew cask reinstall jetbrains-toolbox --force #guard against pre-installed jetbrains-toolbox
 
-echo
-echo "Setup Dev Env... Installing IntelliJ"
-brew cask reinstall intellij-idea --force #guard against pre-installed intellij
-refreshBash
-installPivotalIdePrefs intellij
-
-echo
-echo "Setup Dev Env... Installing WebStorm"
-brew cask reinstall webstorm --force #guard against pre-installed webstorm
-refreshBash
-installPivotalIdePrefs webstorm
-
-if didRequest "pycharm"; then
+if didRequest "intellij-ce"; then
   echo
-  echo "Setup Dev Env... Installing PyCharm (Python IDE)"
+  echo "Setup Dev Env... Installing IntelliJ Community Edition"
+  brew cask reinstall intellij-idea-ce --force #guard against pre-installed intellij-idea-ce
+  refreshBash
+  installPivotalIdePrefs intellijcommunity
+fi
+
+if didRequest "intellij-pro"; then
+  echo
+  echo "Setup Dev Env... Installing IntelliJ Professional"
+  brew cask reinstall intellij-idea --force #guard against pre-installed intellij-idea
+  refreshBash
+  installPivotalIdePrefs intellij
+fi
+
+if didRequest "pycharm-ce"; then
+  echo
+  echo "Setup Dev Env... Installing PyCharm Community Edition (free Python IDE)"
+  brew cask reinstall pycharm-ce --force #guard against pre-installed pycharm-ce
+  refreshBash
+  installPivotalIdePrefs pycharm
+fi
+
+if didRequest "pycharm-pro"; then
+  echo
+  echo "Setup Dev Env... Installing PyCharm Professional (paid Python IDE)"
   brew cask reinstall pycharm --force #guard against pre-installed pycharm
   refreshBash
   installPivotalIdePrefs pycharm
 fi
 
-if didRequest "go"; then
+if didRequest "webstorm"; then
+  echo
+  echo "Setup Dev Env... Installing WebStorm (paid JavaScript IDE)"
+  brew cask reinstall webstorm --force #guard against pre-installed webstorm
+  refreshBash
+  installPivotalIdePrefs webstorm
+fi
+
+if didRequest "golang"; then
   echo
   echo "Setup Dev Env... Installing Go"
   mkdir -p ~/go/src
   brew reinstall go --force #guard against pre-installed version
   brew reinstall dep --force #guard against pre-installed version
+fi
+
+if didRequest "goland-ide"; then
   echo
-  echo "Setup Dev Env... Installing GoLand (Go IDE)"
+  echo "Setup Dev Env... Installing GoLand (paid Go IDE)"
   brew cask reinstall goland --force #guard against pre-installed goland
   refreshBash
   installPivotalIdePrefs goland

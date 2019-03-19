@@ -214,12 +214,17 @@ function intro() {
 function askForAdditionalRequests() {
   resetColor
   echo "Write, in a single line, any of these additional items available for install:"
-  echo "    pycharm - Python IDE"
-  echo "    go - this will also install goland (a 'go' IDE)"
+  echo "  intellij-ce   - IntelliJ Community Edition (free Java IDE)"
+  echo "  intellij-pro  - IntelliJ Professional Edition (paid Java IDE)"
+  echo "  pycharm-ce    - PyCharm Community Edition (free Python IDE)"
+  echo "  pycharm-pro   - PyCharm Professional Edition (paid Python IDE)"
+  echo "  webstorm      - JavaScript IDE (paid)"
+  echo "  golang        - Go language (free)"
+  echo "  goland-ide    - GoLand (paid Go IDE)"
   echo
   sleep 1
   greenColor
-  read -p "Additionally Install [pycharm go]: " REQUESTED_ADDITIONAL_INSTALLS
+  read -p "Additionally Install [intellij-ce pycharm-ce ... ]: " REQUESTED_ADDITIONAL_INSTALLS
   echo
   resetColor
 }
