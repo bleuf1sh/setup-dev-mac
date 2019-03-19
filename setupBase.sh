@@ -281,22 +281,22 @@ function acquireSudo() {
 function sitBackAndRelax() {
   echo
   echo
-  echo "                    o"
-  echo "           o       /"
-  echo "            \     /"
-  echo "             \   /"
-  echo "              \ /"
-  echo "+--------------v-------------+"
-  echo "|  __________________      @ |"
-  echo "| /                  \       |"
-  echo "| |     Sit Back     |  (\)  |"
-  echo "| |       Watch      |       |"
-  echo "| |         +        |  (-)  |"
-  echo "| |      ENJOY!!     |       |"
-  echo "| \                  / :|||: |"
-  echo "|  -ooo--------------  :|||: |"
-  echo "+----------------------------+"
-  echo "   []                    []"
+  echo "                      o"
+  echo "             o       /"
+  echo "              \     /"
+  echo "               \   /"
+  echo "                \ /"
+  echo "  +--------------v-------------+"
+  echo "  |  __________________      @ |"
+  echo "  | /                  \       |"
+  echo "  | |     Sit Back     |  (\)  |"
+  echo "  | |       Watch      |       |"
+  echo "  | |         +        |  (-)  |"
+  echo "  | |      ENJOY!!     |       |"
+  echo "  | \                  / :|||: |"
+  echo "  |  -ooo--------------  :|||: |"
+  echo "  +----------------------------+"
+  echo "     []                    []"
   echo
   echo
 }
