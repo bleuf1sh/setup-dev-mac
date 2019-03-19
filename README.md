@@ -22,12 +22,15 @@ It also configures and installs some additional things to make developers feel w
 
 ### Dev IDE's
 - VS Code w/ IntelliJ Keybindings
-- *IntelliJ Community Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
-- *IntelliJ Ultimate Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
-- *PyCharm Community Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
-- *PyCharm Professional Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
-- *WebStorm w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
-- *goland  w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- **IntelliJ Community Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- **IntelliJ Ultimate Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- **PyCharm Community Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- **PyCharm Professional Edition w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- **WebStorm w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+- **goland  w/ [Pivotal IDE Prefs](https://github.com/pivotal/pivotal_ide_prefs)
+
+** optional
+
 
 ### Shells
 These are pre-configured to have nice GIT prompts and colors 
@@ -74,7 +77,6 @@ These are pre-configured to have nice GIT prompts and colors
 - custom Peppermint color in terminals for better readability
 
 
-*indicates optional
 
 </br>
 
