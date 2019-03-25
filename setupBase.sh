@@ -338,10 +338,18 @@ function installCommandLineUtils() {
       echo "Please, wait until Command Line Tools will be installed, before continue"
 
       xcode-select --install
+      greenColor
+      echo
+      read -p "----- PRESS ANY KEY WHEN DONE INSTALLING -----" throw_away
+      read -p "----- PRESS ANY KEY TO CONTINUE -----" throw_away
+      echo
       refreshBash
   else
       echo "Great! Seems like you have installed xCode Command Line Tools"
   fi
+  
+  echo "Resetting xCode Path to default behaviour"
+  sudo xcode-select --reset
 
   greenColor
   echo "Accepting on your behalf the xCodeBuild License"
