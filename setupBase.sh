@@ -341,19 +341,15 @@ function installCommandLineUtils() {
       greenColor
       echo
       read -p "----- PRESS ANY KEY WHEN DONE INSTALLING -----" throw_away
-      read -p "----- PRESS ANY KEY TO CONTINUE -----" throw_away
       echo
       refreshBash
   else
       echo "Great! Seems like you have installed xCode Command Line Tools"
   fi
-  
-  echo "Resetting xCode Path to default behaviour"
-  sudo xcode-select --reset
 
   greenColor
-  echo "Accepting on your behalf the xCodeBuild License"
-  sudo xcodebuild -license accept
+  echo "Attempting to accept on your behalf the xCodeBuild License"
+  ! sudo xcodebuild -license accept
   
   resetColor
 }
