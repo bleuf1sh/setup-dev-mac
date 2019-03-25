@@ -1,5 +1,5 @@
 # setup-dev-mac
-## Simple one-liner auto magic setup for development/programming on a Mac in ~10min
+## Simple one-liner auto magic setup for development/programming on a Mac in ~13min
 copy/paste this line into terminal (bash) and run
 ```
 curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-dev-mac/master/setupBase.sh?$(date +%s)" > setupBase.sh && bash setupBase.sh start
