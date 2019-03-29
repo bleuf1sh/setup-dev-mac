@@ -7,6 +7,7 @@ echo "Setup Mac Apps..."
 set +e
 
 # Misc
+brew cask reinstall zoomus
 brew cask reinstall vlc
 brew cask reinstall sequel-pro
 brew cask reinstall flux
