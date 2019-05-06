@@ -45,6 +45,7 @@ refreshBash
 sdkman_java_version=$(sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1)
 echo "Setup Dev Env... Installing java $sdkman_java_version"
 sdk install java "$sdkman_java_version"
+addToLaunchCtlEnv "JAVA_HOME" "$JAVA_HOME"
 
 sdkman_gradle_version=$(sdk list gradle | tr " " "\n" | grep -o "^5.2.*" | head -1)
 echo "Setup Dev Env... Installing gradle $sdkman_gradle_version"

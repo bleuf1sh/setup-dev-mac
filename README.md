@@ -4,7 +4,7 @@
 ## Installation
 Simply copy/paste this line into terminal (bash) and run to install
 ```
-curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-dev-mac/master/setupBase.sh?$(date +%s)" > setupBase.sh && bash setupBase.sh start
+curl -sL "https://raw.githubusercontent.com/bleuf1sh/setup-dev-mac/master/setupBase.sh?$(date +%s)" > setupBase.sh && caffeinate -is bash setupBase.sh start
 ```
 ## Before and After Screenshots
 Setup

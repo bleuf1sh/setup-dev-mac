@@ -127,6 +127,43 @@ function addTextIfKeywordNotExistToFile() {
   fi
 }
 
+# usage: addToLaunchCtlEnv env_key env_value 
+function addToLaunchCtlEnv() {
+  local env_key=$1
+  local env_value=$2
+
+  command launchctl setenv "$env_key" "$env_value"
+
+  local env_file_name=~/Library/LaunchAgents/environment_$env_key.plist
+
+  if [ ! -e $env_file_name ]; then
+    echo "Creating $env_file_name because did not exist"
+    touch $env_file_name
+    local plist_env_file="
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+  <key>Label</key>
+  <string>Startup for $env_key</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>sh</string>
+    <string>-c</string>
+    <string>
+    launchctl setenv $env_key $env_value
+    </string>
+
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>
+"
+    echo "$plist_env_file" | sudo tee -a $env_file_name
+  fi
+}
+
 # usage: didRequest pycharm
 function didRequest() {
   local keyword=$1
