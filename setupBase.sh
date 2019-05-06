@@ -393,12 +393,25 @@ function installGit() {
   
   echo
   echo "Installing Git... Setting global Git configurations"
-  git config --global core.editor /usr/bin/nano #nano comes built in Mac
+  # git config --global core.editor /usr/bin/nano #nano comes built in Mac
+  git config --global core.editor /usr/bin/vim #from user testing vim seems more familiar
   git config --global transfer.fsckobjects true
 
   echo
   echo "Installing Git... Setting up Git aliases"
-  git config --global alias.s git status
+  git config --global alias.co checkout
+  git config --global alias.ci commit
+  git config --global alias.s status
+  git config --global alias.st status
+  
+  addTextIfKeywordNotExistToFile ~/.bash_profile "alias s='git status'" "alias s='git status'" 
+  addTextIfKeywordNotExistToFile ~/.bash_profile "alias gs='git status'" "alias gs='git status'"
+  addTextIfKeywordNotExistToFile ~/.bash_profile "alias gst='git status'" "alias gst='git status'"
+  
+  addTextIfKeywordNotExistToFile ~/.bash_profile "alias ga='git add '" "alias ga='git add '" 
+  
+  addTextIfKeywordNotExistToFile ~/.bash_profile "alias co='git checkout '" "alias co='git checkout '" 
+  addTextIfKeywordNotExistToFile ~/.bash_profile "alias go='git checkout '" "alias go='git checkout '" 
 
   greenColor
   echo 
