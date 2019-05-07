@@ -16,6 +16,7 @@ Finder Before and After
 Terminal Before and After
 ![Terminal Before and After](demo-images/terminal.gif?raw=true "Terminal Before and After")
 
+## Do you Pair or have multiple code contributors? try https://github.com/bleuf1sh/git-byLines
 
 ## What makes this different than other auto magical setups out there
 After using other setup scripts, it was difficult to switch to a different version of what was installed. For example, switching between different versions of node or switching from using OracleJDK to OpenJDK was extremely challenging.
