@@ -50,6 +50,7 @@ addToLaunchCtlEnv "JAVA_HOME" "$JAVA_HOME"
 sdkman_gradle_version=$(sdk list gradle | tr " " "\n" | grep -o "^5.2.*" | head -1)
 echo "Setup Dev Env... Installing gradle $sdkman_gradle_version"
 sdk install gradle "$sdkman_gradle_version"
+addToLaunchCtlEnv "GRADLE_HOME" "$GRADLE_HOME"
 
 sdkman_springboot_version=$(sdk list springboot | tr " " "\n" | grep -o "^2.1.*" | head -1)
 echo "Setup Dev Env... Installing SpringBoot $sdkman_springboot_version"
