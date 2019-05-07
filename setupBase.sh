@@ -163,8 +163,11 @@ function addToLaunchCtlEnv() {
 "
     echo "$plist_env_file" | sudo tee -a "$env_file_name"
   fi
-  launchctl load "$env_file_name"
-  launchctl start "$env_file_name"
+
+  set +e
+  command launchctl load "$env_file_name"
+  command launchctl start "$env_file_name"
+  set -e
 }
 
 # usage: didRequest pycharm
