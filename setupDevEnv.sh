@@ -45,16 +45,26 @@ refreshBash
 sdkman_java_version=$(sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1)
 echo "Setup Dev Env... Installing java $sdkman_java_version"
 sdk install java "$sdkman_java_version"
+
+source ~/.sdkman/bin/sdkman-init.sh || sdk version
+refreshBash
 addToLaunchCtlEnv "JAVA_HOME" "$JAVA_HOME"
 
 sdkman_gradle_version=$(sdk list gradle | tr " " "\n" | grep -o "^5.2.*" | head -1)
 echo "Setup Dev Env... Installing gradle $sdkman_gradle_version"
 sdk install gradle "$sdkman_gradle_version"
+
+source ~/.sdkman/bin/sdkman-init.sh || sdk version
+refreshBash
 addToLaunchCtlEnv "GRADLE_HOME" "$GRADLE_HOME"
 
 sdkman_springboot_version=$(sdk list springboot | tr " " "\n" | grep -o "^2.1.*" | head -1)
 echo "Setup Dev Env... Installing SpringBoot $sdkman_springboot_version"
 sdk install springboot "$sdkman_springboot_version"
+
+source ~/.sdkman/bin/sdkman-init.sh || sdk version
+refreshBash
+addToLaunchCtlEnv "SPRINGBOOT_HOME" "$SPRINGBOOT_HOME"
 
 echo
 echo "Setup Dev Env... Installing VS Code"
