@@ -294,7 +294,7 @@ function intro() {
   
   greenColor
   echo
-  read -p "----- PRESS ANY KEY TO CONTINUE -----" throw_away
+  read -p "----- PRESS ENTER KEY TO CONTINUE -----" throw_away
   echo
 
   sleep 1
@@ -383,7 +383,7 @@ function installCommandLineUtils() {
       xcode-select --install
       greenColor
       echo
-      read -p "----- PRESS ANY KEY WHEN DONE INSTALLING -----" throw_away
+      read -p "----- PRESS ENTER KEY WHEN DONE INSTALLING -----" throw_away
       echo
       refreshBash
   else
