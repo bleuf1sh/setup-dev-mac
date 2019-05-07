@@ -90,7 +90,11 @@ These are pre-configured to have nice GIT prompts and colors
 - default Mac dock is scrubbed of all distractions
 - custom Peppermint color in terminals for better readability
 
-
+## Aliases
+- git status   [s, st, gst]
+- git add      [ga]
+- git checkout [co, go]
+- ls -al       [l]
 
 </br>
 
