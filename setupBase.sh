@@ -133,12 +133,13 @@ function addToLaunchCtlEnv() {
   local env_value=$2
 
   command launchctl setenv "$env_key" "$env_value"
-
-  local env_file_name=~/Library/LaunchAgents/environment_$env_key.plist
+  local launch_agents_env_folder=~/Library/LaunchAgents
+  sudo mkdir -p $launch_agents_env_folder
+  local env_file_name="$launch_agents_env_folder/environment_$env_key.plist"
 
   if [ ! -e $env_file_name ]; then
     echo "Creating $env_file_name because did not exist"
-    touch $env_file_name
+    sudo touch $env_file_name
     local plist_env_file="
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
