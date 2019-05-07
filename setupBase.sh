@@ -134,25 +134,25 @@ function addToLaunchCtlEnv() {
 
   command launchctl setenv "$env_key" "$env_value"
   local launch_agents_env_folder=~/Library/LaunchAgents
-  sudo mkdir -p $launch_agents_env_folder
+  sudo mkdir -p "$launch_agents_env_folder"
   local env_file_name="$launch_agents_env_folder/environment_$env_key.plist"
 
   if [ ! -e $env_file_name ]; then
     echo "Creating $env_file_name because did not exist"
-    sudo touch $env_file_name
+    sudo touch "$env_file_name"
     local plist_env_file="
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
 <plist version=\"1.0\">
 <dict>
   <key>Label</key>
-  <string>Startup for $env_key</string>
+  <string>StartupFor$env_key</string>
   <key>ProgramArguments</key>
   <array>
     <string>sh</string>
     <string>-c</string>
     <string>
-    launchctl setenv $env_key $env_value
+    launchctl setenv "$env_key" "$env_value"
     </string>
 
   </array>
@@ -161,8 +161,10 @@ function addToLaunchCtlEnv() {
 </dict>
 </plist>
 "
-    echo "$plist_env_file" | sudo tee -a $env_file_name
+    echo "$plist_env_file" | sudo tee -a "$env_file_name"
   fi
+  launchctl load "$env_file_name"
+  launchctl start "$env_file_name"
 }
 
 # usage: didRequest pycharm
