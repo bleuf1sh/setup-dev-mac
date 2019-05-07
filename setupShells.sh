@@ -4,6 +4,8 @@ printSpacer
 echo
 echo "Setup Shells..."
 
+addTextIfKeywordNotExistToFile ~/.bash_profile "alias l='ls -al'" "alias l='ls -al'" 
+
 echo
 echo "Setup Shells... Installing Powerline shell for bash"
 pip3 install powerline-shell
