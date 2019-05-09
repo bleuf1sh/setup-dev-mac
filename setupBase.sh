@@ -2,7 +2,7 @@
 # License located at https://github.com/bleuf1sh/setup-dev-mac
 
 LOCAL_SETUP_DEV_MAC_GIT_REPO=~/setup-dev-mac
-AVAILABLE_TEMP_DIR=~/setup-dev-mac-temp
+AVAILABLE_TEMP_DIR=/tmp/setup-dev-mac_TEMP
 mkdir -p $AVAILABLE_TEMP_DIR
 
 function printBleuf1sh() {
@@ -134,39 +134,57 @@ function addToLaunchCtlEnv() {
 
   command launchctl setenv "$env_key" "$env_value"
   local launch_agents_env_folder=~/Library/LaunchAgents
-  sudo mkdir -p "$launch_agents_env_folder"
-  local env_file_name="$launch_agents_env_folder/environment_$env_key.plist"
+  
+  mkdir -p "$launch_agents_env_folder"
+  local plist_name="com.bleuf1sh.setup_dev_mac.env.$env_key"
+  local env_full_file_name="$launch_agents_env_folder/$plist_name.plist"
 
-  if [ ! -e $env_file_name ]; then
-    echo "Creating $env_file_name because did not exist"
-    sudo touch "$env_file_name"
+  if [ ! -e $env_full_file_name ]; then
+    echo "Creating $env_full_file_name because did not exist"
+    touch "$env_full_file_name"
     local plist_env_file="
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
 <plist version=\"1.0\">
 <dict>
   <key>Label</key>
-  <string>StartupFor$env_key</string>
+  <string>$plist_name</string>
+  
   <key>ProgramArguments</key>
   <array>
-    <string>sh</string>
+    <string>bash</string>
     <string>-c</string>
     <string>
-    launchctl setenv "$env_key" "$env_value"
+    echo \"\$(date): launchctl setenv '$env_key' '$env_value'\" >> /tmp/com.bleuf1sh.setup_dev_mac.log
+    launchctl setenv '$env_key' '$env_value'
+    echo \"\$(date): launchctl setenv '$env_key' '$env_value'... DONE\" >> /tmp/com.bleuf1sh.setup_dev_mac.log
     </string>
-
   </array>
+  
   <key>RunAtLoad</key>
   <true/>
+  
+  <key>StartInterval</key>
+  <integer>5</integer>
+
+  <key>LaunchOnlyOnce</key>
+  <true/>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/com.bleuf1sh.setup_dev_mac.err</string>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/com.bleuf1sh.setup_dev_mac.out</string>
+  
 </dict>
 </plist>
 "
-    echo "$plist_env_file" | sudo tee -a "$env_file_name"
+    echo "$plist_env_file" | sudo tee -a "$env_full_file_name"
   fi
 
   set +e
-  command launchctl load "$env_file_name"
-  command launchctl start "$env_file_name"
+  command launchctl unload "$env_full_file_name"
+  command launchctl load "$env_full_file_name"
   set -e
 }
 
