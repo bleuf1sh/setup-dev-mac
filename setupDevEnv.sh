@@ -42,14 +42,14 @@ fi
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
 
-sdkman_java_version=$(sdk list java | tr " " "\n" | grep -o "^11.*open" | head -1)
+sdkman_java_version=$(sdk list java | tr " " "\n" | grep -o "^11.*zulu" | head -1)
 echo "Setup Dev Env... Installing java $sdkman_java_version"
 sdk install java "$sdkman_java_version"
 
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
-addToLaunchCtlEnv "JDK_HOME" "$JAVA_HOME"
-addToLaunchCtlEnv "JAVA_HOME" "$JAVA_HOME"
+# addToLaunchCtlEnv "JDK_HOME" "$JAVA_HOME"
+# addToLaunchCtlEnv "JAVA_HOME" "$JAVA_HOME"
 sdkman_parent_dir=$(dirname $JAVA_HOME)
 createDesktopShortcut "SDKMAN JAVA_HOME's" "$sdkman_parent_dir"
 
@@ -59,7 +59,7 @@ sdk install gradle "$sdkman_gradle_version"
 
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
-addToLaunchCtlEnv "GRADLE_HOME" "$GRADLE_HOME"
+# addToLaunchCtlEnv "GRADLE_HOME" "$GRADLE_HOME"
 sdkman_parent_dir=$(dirname $GRADLE_HOME)
 createDesktopShortcut "SDKMAN GRADLE_HOME's" "$sdkman_parent_dir"
 
@@ -69,7 +69,7 @@ sdk install springboot "$sdkman_springboot_version"
 
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
-addToLaunchCtlEnv "SPRINGBOOT_HOME" "$SPRINGBOOT_HOME"
+# addToLaunchCtlEnv "SPRINGBOOT_HOME" "$SPRINGBOOT_HOME"
 
 echo
 echo "Setup Dev Env... Installing VS Code"
