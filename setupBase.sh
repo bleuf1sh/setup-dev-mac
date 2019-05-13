@@ -126,23 +126,38 @@ function addTextIfKeywordNotExistToFile() {
     echo "$line_to_add" | sudo tee -a $file
   fi
 }
+# usage: createDesktopShortcut() shortcut_name orig_path
+function createDesktopShortcut() {
+  # Allow non-blocking failures
+  set +e
+  local shortcut_name=$1
+  local orig_path=$2
+  echo "$orig_path"
+  pushd ~/Desktop
+  ln -s "$orig_path" "$shortcut_name"
+  popd
+  set -e
+}
 
 # usage: addToLaunchCtlEnv env_key env_value 
 function addToLaunchCtlEnv() {
+  # Allow non-blocking failures
+  set +e
   local env_key=$1
   local env_value=$2
 
-  command launchctl setenv "$env_key" "$env_value"
+  local launchctl_tmp_dir=/tmp/com.bleuf1sh.setup_dev_mac.env
+  mkdir -p "$launchctl_tmp_dir"
+
   local launch_agents_env_folder=~/Library/LaunchAgents
-  
   mkdir -p "$launch_agents_env_folder"
+
   local plist_name="com.bleuf1sh.setup_dev_mac.env.$env_key"
   local env_full_file_name="$launch_agents_env_folder/$plist_name.plist"
 
-  if [ ! -e $env_full_file_name ]; then
-    echo "Creating $env_full_file_name because did not exist"
-    touch "$env_full_file_name"
-    local plist_env_file="
+  local launchctl_command="launchctl setenv $env_key \$$env_key"
+
+  local plist_env_file="
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
 <plist version=\"1.0\">
@@ -155,9 +170,10 @@ function addToLaunchCtlEnv() {
     <string>bash</string>
     <string>-c</string>
     <string>
-    echo \"\$(date): launchctl setenv '$env_key' '$env_value'\" >> /tmp/com.bleuf1sh.setup_dev_mac.log
-    launchctl setenv '$env_key' '$env_value'
-    echo \"\$(date): launchctl setenv '$env_key' '$env_value'... DONE\" >> /tmp/com.bleuf1sh.setup_dev_mac.log
+    source ~/.bash_profile
+    $launchctl_command
+    find $launchctl_tmp_dir -type f -size +1M -delete
+    echo \"\$(date): [$launchctl_command]... DONE\" >> $launchctl_tmp_dir/log.log
     </string>
   </array>
   
@@ -165,24 +181,19 @@ function addToLaunchCtlEnv() {
   <true/>
   
   <key>StartInterval</key>
-  <integer>5</integer>
-
-  <key>LaunchOnlyOnce</key>
-  <true/>
+  <integer>10</integer>
 
   <key>StandardErrorPath</key>
-  <string>/tmp/com.bleuf1sh.setup_dev_mac.err</string>
+  <string>$launchctl_tmp_dir/log.err</string>
 
   <key>StandardOutPath</key>
-  <string>/tmp/com.bleuf1sh.setup_dev_mac.out</string>
+  <string>$launchctl_tmp_dir/log.out</string>
   
 </dict>
 </plist>
 "
-    echo "$plist_env_file" | sudo tee -a "$env_full_file_name"
-  fi
+  echo "$plist_env_file" > "$env_full_file_name"
 
-  set +e
   command launchctl unload "$env_full_file_name"
   command launchctl load "$env_full_file_name"
   set -e

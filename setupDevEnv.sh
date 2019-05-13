@@ -48,7 +48,10 @@ sdk install java "$sdkman_java_version"
 
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
+addToLaunchCtlEnv "JDK_HOME" "$JAVA_HOME"
 addToLaunchCtlEnv "JAVA_HOME" "$JAVA_HOME"
+sdkman_parent_dir=$(dirname $JAVA_HOME)
+createDesktopShortcut "SDKMAN JAVA_HOME OPTIONS" "$sdkman_parent_dir"
 
 sdkman_gradle_version=$(sdk list gradle | tr " " "\n" | grep -o "^5.2.*" | head -1)
 echo "Setup Dev Env... Installing gradle $sdkman_gradle_version"
@@ -57,6 +60,8 @@ sdk install gradle "$sdkman_gradle_version"
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
 addToLaunchCtlEnv "GRADLE_HOME" "$GRADLE_HOME"
+sdkman_parent_dir=$(dirname $GRADLE_HOME)
+createDesktopShortcut "SDKMAN GRADLE_HOME OPTIONS" "$sdkman_parent_dir"
 
 sdkman_springboot_version=$(sdk list springboot | tr " " "\n" | grep -o "^2.1.*" | head -1)
 echo "Setup Dev Env... Installing SpringBoot $sdkman_springboot_version"
