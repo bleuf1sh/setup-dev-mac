@@ -42,7 +42,7 @@ fi
 source ~/.sdkman/bin/sdkman-init.sh || sdk version
 refreshBash
 
-sdkman_java_version=$(sdk list java | tr " " "\n" | grep -o "^11.*zulu" | head -1)
+sdkman_java_version=$(sdk list java | tr ' ' '\n' | sort -r | grep -o '^11.0.*zulu.*' | head -1)
 echo "Setup Dev Env... Installing java $sdkman_java_version"
 sdk install java "$sdkman_java_version"
 
@@ -53,7 +53,7 @@ refreshBash
 sdkman_parent_dir=$(dirname $JAVA_HOME)
 createDesktopShortcut "SDKMAN JAVA_HOME's" "$sdkman_parent_dir"
 
-sdkman_gradle_version=$(sdk list gradle | tr " " "\n" | grep -o "^5.2.*" | head -1)
+sdkman_gradle_version=$(sdk list gradle | tr ' ' '\n' | sort -r | grep -o '^5.2.*' | head -1)
 echo "Setup Dev Env... Installing gradle $sdkman_gradle_version"
 sdk install gradle "$sdkman_gradle_version"
 
@@ -63,7 +63,7 @@ refreshBash
 sdkman_parent_dir=$(dirname $GRADLE_HOME)
 createDesktopShortcut "SDKMAN GRADLE_HOME's" "$sdkman_parent_dir"
 
-sdkman_springboot_version=$(sdk list springboot | tr " " "\n" | grep -o "^2.1.*" | head -1)
+sdkman_springboot_version=$(sdk list springboot | tr ' ' '\n' | sort -r | grep -o '^2.1.*' | head -1)
 echo "Setup Dev Env... Installing SpringBoot $sdkman_springboot_version"
 sdk install springboot "$sdkman_springboot_version"
 
