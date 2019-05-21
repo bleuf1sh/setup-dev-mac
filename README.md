@@ -34,7 +34,8 @@ It also configures and installs some additional things to make developers feel w
 - **Go [via brew](https://brew.sh/)
 
 ** optional
-† Desktop shortcut to easily find JAVA_HOME is created
+
+† Desktop shortcut to easily find `JAVA_HOME` is created
 
 ### Dev IDE's
 - VS Code w/ IntelliJ Keybindings
