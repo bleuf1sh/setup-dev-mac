@@ -19,10 +19,14 @@ brew cask reinstall go2shell --force
 open "/Applications/Go2Shell.app/Contents/MacOS/"
 
 brew cask reinstall flycut --force
+echo "Setup Mac Apps... Removing Security Quarantine Flag"
+sudo xattr -rd com.apple.quarantine "/Applications/Flycut.app"
 echo "Setup Mac Apps... Opening Flycut for Manual Config"
 open "/Applications/Flycut.app"
 
 brew cask reinstall shiftit --force
+echo "Setup Mac Apps... Removing Security Quarantine Flag"
+sudo xattr -rd com.apple.quarantine "/Applications/ShiftIt.app"
 echo
 echo "Setup Mac Apps... Configuring shiftit to select 1/3 screen width, 1/2 screen width and 2/3 screen width:"
 echo "`defaults write org.shiftitapp.ShiftIt multipleActionsCycleWindowSizes YES`"
