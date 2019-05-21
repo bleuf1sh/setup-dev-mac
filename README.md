@@ -33,8 +33,7 @@ It also configures and installs some additional things to make developers feel w
 - Python3 [via brew](https://brew.sh/)
 - **Go [via brew](https://brew.sh/)
 
-** optional
-
+** optional </br>
 † Desktop shortcut to easily find `JAVA_HOME` is created
 
 ### Dev IDE's
