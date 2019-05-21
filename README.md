@@ -26,7 +26,7 @@ Therefore, this scripts primary differentiator is it tries to use an already ava
 It also configures and installs some additional things to make developers feel warm and cozy.
 
 ### Dev Languages
-- †OpenJDK Zulu 11.x [via sdk man](https://sdkman.io/)
+- †OpenJDK zulu 11.x [via sdk man](https://sdkman.io/)
 - Gradle 5.2.x [via sdk man](https://sdkman.io/)
 - SpringBoot 2.1.x [via sdk man](https://sdkman.io/)
 - Node LTS [via n](https://github.com/tj/n)
