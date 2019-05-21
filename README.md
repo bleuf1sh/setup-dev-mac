@@ -26,7 +26,7 @@ Therefore, this scripts primary differentiator is it tries to use an already ava
 It also configures and installs some additional things to make developers feel warm and cozy.
 
 ### Dev Languages
-- OpenJDK 11.x [via sdk man](https://sdkman.io/)
+- †OpenJDK Zulu 11.x [via sdk man](https://sdkman.io/)
 - Gradle 5.2.x [via sdk man](https://sdkman.io/)
 - SpringBoot 2.1.x [via sdk man](https://sdkman.io/)
 - Node LTS [via n](https://github.com/tj/n)
@@ -34,6 +34,7 @@ It also configures and installs some additional things to make developers feel w
 - **Go [via brew](https://brew.sh/)
 
 ** optional
+† Desktop shortcut to easily find JAVA_HOME is created
 
 ### Dev IDE's
 - VS Code w/ IntelliJ Keybindings
@@ -51,7 +52,7 @@ It also configures and installs some additional things to make developers feel w
 These are pre-configured to have nice GIT prompts and colors 
 - bash [powerline-shell styles on bash](https://github.com/b-ryan/)
 - [fish](https://fishshell.com/) w/ bleuf1sh settings
-  note: bash remains the default shell... from any shell type 'fish' to start fish
+  note: bash remains the default shell... from any shell type `fish` to start fish
 
 ### CLI's
 - Brew
