@@ -93,10 +93,10 @@ These are pre-configured to have nice GIT prompts and colors
 - custom Peppermint color in terminals for better readability
 
 ## Aliases
-- `git status`   =>   `s`, `st`, `gst`
-- `git add`      =>   `ga`
-- `git checkout` =>   `co`, `go`
-- `ls -al`       =>   `l`
+- `git status`   ⟹   `s`, `st`, `gst`
+- `git add`      ⟹   `ga`
+- `git checkout` ⟹   `co`, `go`
+- `ls -al`       ⟹   `l`
 
 </br>
 
