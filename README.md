@@ -95,7 +95,7 @@ These are pre-configured to have nice GIT prompts and colors
 ## Aliases
 - `git status`   ⟹   `s`, `st`, `gst`
 - `git add`      ⟹   `ga`
-- `git checkout` ⟹   `co`, `go`
+- `git checkout` ⟹   `co`, `gco`
 - `ls -al`       ⟹   `l`
 
 </br>
