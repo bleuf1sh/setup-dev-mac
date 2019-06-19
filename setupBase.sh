@@ -483,7 +483,7 @@ function installGit() {
   addTextIfKeywordNotExistToFile ~/.bash_profile "alias ga='git add '" "alias ga='git add '" 
   
   addTextIfKeywordNotExistToFile ~/.bash_profile "alias co='git checkout '" "alias co='git checkout '" 
-  addTextIfKeywordNotExistToFile ~/.bash_profile "alias go='git checkout '" "alias go='git checkout '" 
+  addTextIfKeywordNotExistToFile ~/.bash_profile "alias gco='git checkout '" "alias gco='git checkout '" 
 
   greenColor
   echo 
