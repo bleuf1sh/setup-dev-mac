@@ -50,7 +50,7 @@ It also configures and installs some additional things to make developers feel w
 
 ### Shells
 These are pre-configured to have nice GIT prompts and colors 
-- bash [powerline-shell styles on bash](https://github.com/b-ryan/)
+- bash [powerline-shell styles on bash](https://github.com/b-ryan/powerline-shell)
 - [fish](https://fishshell.com/) w/ bleuf1sh settings
   note: bash remains the default shell... from any shell type `fish` to start fish
 
