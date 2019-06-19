@@ -26,6 +26,6 @@ function co --description 'alias co=git checkout'
 	git checkout $argv;
 end
 
-function gco --description 'alias go=git checkout'
+function gco --description 'alias gco=git checkout'
 	git checkout $argv;
 end
