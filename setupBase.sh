@@ -127,16 +127,17 @@ function addTextIfKeywordNotExistToFile() {
   local keyword=$2
   local line_to_add=$3
 
-  if [ ! -e $file ]; then
+  if [ ! -e "$file" ]; then
     echo "Creating $file because did not exist"
-    touch $file
+    touch "$file"
   fi
 
-  if grep -q "$keyword" $file; then
+  if grep -q "$keyword" "$file"; then
     echo "$keyword already exists in $file: $line_to_add"
   else
     echo "adding to $file: $line_to_add"
-    echo "$line_to_add" | sudo tee -a $file
+    ( echo "$line_to_add" | tee -a "$file" ) || \
+    ( echo "$line_to_add" | sudo tee -a "$file" )
   fi
 }
 # usage: createDesktopShortcut() shortcut_name orig_path
@@ -253,8 +254,8 @@ function appendScriptDurationToOutpu() {
 function downloadFile() {
   local url=$1
   local filename=$2
-  local full_file_path=$AVAILABLE_TEMP_DIR/$filename
-  curl -C - -L $url --output $full_file_path
+  local full_file_path="$AVAILABLE_TEMP_DIR/$filename"
+  curl -C - -L "$url" --output "$full_file_path"
   echo "$full_file_path"
 }
 
@@ -270,7 +271,7 @@ function installDmg() {
     cp -R -f "$mounted_volume"/*.app /Applications
   elif [ -e "$mounted_volume"/*.pkg ]; then
     package=$(ls -1 "$mounted_volume" | grep .pkg | head -1)
-    sudo installer -pkg "$mounted_volume"/"$package" -target /
+    sudo installer -pkg "$mounted_volume/$package" -target /
   fi
   sleep 5
   sudo hdiutil detach "$mounted_volume"
@@ -379,10 +380,10 @@ function setupDone() {
 
   blueColor
   printTheEndCredits
-
+  
   appendScriptDurationToOutput
   cat "$END_OF_SCRIPT_OUTPUT_TXT_PATH"
-  
+
   greenColor
   echo
   echo "Sorry, there are a few manual steps:"
@@ -508,7 +509,7 @@ function installGit() {
 
 if [ "$1" == "loadFuncs" ]; then
   echo "setupBase loaded"
-  
+
 elif [ "$1" == "start" ]; then
   SCRIPT_START_TIME=$SECONDS
 
@@ -536,7 +537,7 @@ elif [ "$1" == "start" ]; then
   cd "$LOCAL_SETUP_DEV_MAC_GIT_REPO"
   printSpacer
   printSpacer
-  
+
   source setupCloudFoundryCli.sh
   source setupDevEnv.sh
   source setupShells.sh
