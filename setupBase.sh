@@ -3,7 +3,9 @@
 
 LOCAL_SETUP_DEV_MAC_GIT_REPO=~/setup-dev-mac
 AVAILABLE_TEMP_DIR=/tmp/setup-dev-mac_TEMP
-mkdir -p $AVAILABLE_TEMP_DIR
+mkdir -p "$AVAILABLE_TEMP_DIR"
+
+END_OF_SCRIPT_OUTPUT_TXT_PATH="$AVAILABLE_TEMP_DIR/END_OF_SCRIPT_OUTPUT_TXT.txt"
 
 function printBleuf1sh() {
   echo
@@ -96,6 +98,17 @@ function refreshBash() {
     echo "sourcing ~/.bash_profile"
     source ~/.bash_profile
   fi
+}
+
+# usage: resetEndOfScriptOutput
+function resetEndOfScriptOutput() {
+  echo "$(date)" > "$END_OF_SCRIPT_OUTPUT_TXT_PATH"
+}
+
+# usage: appendToEndOfScriptOutput 'XXX could not be installed.'
+function appendToEndOfScriptOutput() {
+  local text=$1
+  echo "$text" >> "$END_OF_SCRIPT_OUTPUT_TXT_PATH"
 }
 
 # usage: openAppSleepThenQuit 'Calendar'
@@ -231,9 +244,9 @@ function startScriptTimer() {
   SCRIPT_START_TIME=$SECONDS
 }
 
-function printScriptDuration() {
+function appendScriptDurationToOutpu() {
   SCRIPT_ELAPSED_TIME=$(($SECONDS - $SCRIPT_START_TIME))
-  echo "we took $(($SCRIPT_ELAPSED_TIME/60)) min $(($SCRIPT_ELAPSED_TIME%60)) sec"
+  appendToEndOfScriptOutput "we took $(($SCRIPT_ELAPSED_TIME/60)) min $(($SCRIPT_ELAPSED_TIME%60)) sec"
 }
 
 # usage: dl_file_path=$(downloadFile "https://www.websitewithstuff.com/git-v21231.dmg" "git-latest.dmg")
@@ -366,6 +379,9 @@ function setupDone() {
 
   blueColor
   printTheEndCredits
+
+  appendScriptDurationToOutput
+  cat "$END_OF_SCRIPT_OUTPUT_TXT_PATH"
   
   greenColor
   echo
@@ -381,7 +397,6 @@ function setupDone() {
   echo
   echo "Done :D Please restart the computer to ensure all is well"
   echo
-  printScriptDuration
   echo
   resetColor
   exit 0

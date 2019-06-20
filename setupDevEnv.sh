@@ -11,9 +11,17 @@ brew reinstall python3 --force #guard against pre-installed version
 refreshBash
 echo
 echo "n is a node version manager, it's easy to change to a different node version, see: https://github.com/tj/n"
-if [ $(n --version && true) ]; then
+if [ $(node --version && true) ]; then
+  blueColor
+  local message="node is already installed, sorry! skipping n install for node version management."
+  echo "$message"
+  appendToEndOfScriptOutput "$message"
+  resetColor
+elif [ $(n --version && true) ]; then
   greenColor
-  echo "n is already installed!"
+  local message="n node version management is already installed."
+  echo "$message"
+  appendToEndOfScriptOutput "$message"
   resetColor
 else
   echo
