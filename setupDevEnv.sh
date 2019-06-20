@@ -76,13 +76,15 @@ echo "Setup Dev Env... Installing VS Code"
 brew cask reinstall visual-studio-code 
 addTextIfKeywordNotExistToFile ~/.bash_profile 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"' 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"'
 refreshBash
+set +e
 echo "Setup Dev Env... Configuring VS Code"
 code --install-extension Compulim.indent4to2
 code --install-extension oderwat.indent-rainbow
 code --install-extension ms-python.python
 code --install-extension ms-vscode.go
-code --install-extension peterjausovec.vscode-docker
+code --install-extension ms-azuretools.vscode-docker
 code --install-extension k--kato.intellij-idea-keybindings
+set -e
 mkdir -p ~/"Library/Application Support/Code/User/"
 cp -rf "$LOCAL_SETUP_DEV_MAC_GIT_REPO/vscode/." ~/"Library/Application Support/Code/User"
   
