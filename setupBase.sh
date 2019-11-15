@@ -461,8 +461,8 @@ function installBrew() {
 
   echo
   echo "Installing Brew... Tapping cask and versions"
-  brew tap caskroom/cask
-  brew tap caskroom/versions
+  brew tap homebrew/cask-cask
+  brew tap homebrew/cask-versions
 
   echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
