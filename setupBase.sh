@@ -460,11 +460,6 @@ function installBrew() {
   sudo chown -Rf $(whoami) $(brew --prefix)/*
 
   echo
-  echo "Installing Brew... Tapping cask and versions"
-  brew tap homebrew/cask-cask
-  brew tap homebrew/cask-versions
-
-  echo
   echo "Installing Brew... Adding Brew's sbin to PATH"
   addTextIfKeywordNotExistToFile ~/.bash_profile 'export PATH="/usr/local/sbin:$PATH"' 'export PATH="/usr/local/sbin:$PATH"' 
 
