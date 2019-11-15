@@ -14,7 +14,7 @@
   "mode": "flat",
   "cwd": {
     "mode": "plain",
-    "max_depth": 5
+    "max_depth": 4
   },
   "vcs": {
     "show_symbol": false
