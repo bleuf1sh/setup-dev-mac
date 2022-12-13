@@ -7,7 +7,7 @@ echo "Setup Iterm..."
 set +e
 
 echo "Setup Iterm... Installing"
-brew cask reinstall iterm2 --force #guard against pre-installed version
+brew reinstall --cask iterm2 --force #guard against pre-installed version
 
 echo "Setup Iterm... Configuring"
 # Only use UTF-8 in Terminal.app

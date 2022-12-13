@@ -81,7 +81,7 @@ refreshBash
 
 echo
 echo "Setup Dev Env... Installing VS Code"
-brew cask reinstall visual-studio-code 
+brew reinstall --cask visual-studio-code 
 addTextIfKeywordNotExistToFile ~/.bash_profile 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"' 'export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"'
 refreshBash
 set +e
@@ -98,12 +98,12 @@ cp -rf "$LOCAL_SETUP_DEV_MAC_GIT_REPO/vscode/." ~/"Library/Application Support/C
   
 echo
 echo "Setup Dev Env... Installing JetBrains toolbox"
-brew cask reinstall jetbrains-toolbox --force #guard against pre-installed jetbrains-toolbox
+brew reinstall --cask jetbrains-toolbox --force #guard against pre-installed jetbrains-toolbox
 
 if didRequest "intellij_ce"; then
   echo
   echo "Setup Dev Env... Installing IntelliJ Community Edition"
-  brew cask reinstall intellij-idea-ce --force #guard against pre-installed intellij-idea-ce
+  brew reinstall --cask intellij-idea-ce --force #guard against pre-installed intellij-idea-ce
   refreshBash
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'IntelliJ IDEA CE'
@@ -113,7 +113,7 @@ fi
 if didRequest "intellij_pro"; then
   echo
   echo "Setup Dev Env... Installing IntelliJ Professional"
-  brew cask reinstall intellij-idea --force #guard against pre-installed intellij-idea
+  brew reinstall --cask intellij-idea --force #guard against pre-installed intellij-idea
   refreshBash
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'IntelliJ IDEA'
@@ -123,7 +123,7 @@ fi
 if didRequest "pycharm_ce"; then
   echo
   echo "Setup Dev Env... Installing PyCharm Community Edition (free Python IDE)"
-  brew cask reinstall pycharm-ce --force #guard against pre-installed pycharm-ce
+  brew reinstall --cask pycharm-ce --force #guard against pre-installed pycharm-ce
   refreshBash
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'PyCharm CE'
@@ -133,7 +133,7 @@ fi
 if didRequest "pycharm_pro"; then
   echo
   echo "Setup Dev Env... Installing PyCharm Professional (paid Python IDE)"
-  brew cask reinstall pycharm --force #guard against pre-installed pycharm
+  brew reinstall --cask pycharm --force #guard against pre-installed pycharm
   refreshBash
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'PyCharm'
@@ -143,7 +143,7 @@ fi
 if didRequest "webstorm"; then
   echo
   echo "Setup Dev Env... Installing WebStorm (paid JavaScript IDE)"
-  brew cask reinstall webstorm --force #guard against pre-installed webstorm
+  brew reinstall --cask webstorm --force #guard against pre-installed webstorm
   refreshBash
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'WebStorm'
@@ -161,7 +161,7 @@ fi
 if didRequest "goland_ide"; then
   echo
   echo "Setup Dev Env... Installing GoLand (paid Go IDE)"
-  brew cask reinstall goland --force #guard against pre-installed goland
+  brew reinstall --cask goland --force #guard against pre-installed goland
   refreshBash
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'GoLand'
