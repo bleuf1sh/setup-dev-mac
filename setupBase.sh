@@ -447,7 +447,7 @@ function installBrew() {
   if [ $(which brew) ]; then
     echo "Installing Brew... Brew is already installed!"
   else
-    yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     refreshBash
   fi
 
