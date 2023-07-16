@@ -13,13 +13,13 @@ echo
 echo "n is a node version manager, it's easy to change to a different node version, see: https://github.com/tj/n"
 if [ $(node --version && true) ]; then
   blueColor
-  local message="node is already installed, sorry! skipping n install for node version management."
+  message="node is already installed, sorry! skipping n install for node version management."
   echo "$message"
   appendToEndOfScriptOutput "$message"
   resetColor
 elif [ $(n --version && true) ]; then
   greenColor
-  local message="n node version management is already installed."
+  message="n node version management is already installed."
   echo "$message"
   appendToEndOfScriptOutput "$message"
   resetColor
