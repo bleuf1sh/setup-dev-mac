@@ -7,7 +7,6 @@ echo "Setup Mac Apps..."
 set +e
 
 # Misc
-brew reinstall --cask zoomus
 brew reinstall --cask vlc
 brew reinstall --cask sequel-pro
 brew reinstall --cask flux
@@ -41,6 +40,7 @@ brew reinstall --cask docker --force #guard against pre-installed version
 # Browsers
 brew reinstall --cask firefox --force #guard against pre-installed version
 brew reinstall --cask google-chrome --force #guard against pre-installed version
+brew tap homebrew/cask-versions
 brew reinstall --cask google-chrome-canary --force #guard against pre-installed version
 echo "Setup Mac Apps... Configuring Google Chrome and Canary"
 # Disable the all too sensitive backswipe on trackpads
