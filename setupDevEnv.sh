@@ -71,14 +71,6 @@ refreshBash
 sdkman_parent_dir=$(dirname $GRADLE_HOME)
 createDesktopShortcut "SDKMAN GRADLE_HOME's" "$sdkman_parent_dir"
 
-sdkman_springboot_version=$(sdk list springboot | tr ' ' '\n' | sort -r | grep -o '^2.1.*' | head -1)
-echo "Setup Dev Env... Installing SpringBoot $sdkman_springboot_version"
-sdk install springboot "$sdkman_springboot_version"
-
-source ~/.sdkman/bin/sdkman-init.sh || sdk version
-refreshBash
-# addToLaunchCtlEnv "SPRINGBOOT_HOME" "$SPRINGBOOT_HOME"
-
 echo
 echo "Setup Dev Env... Installing VS Code"
 brew reinstall --cask visual-studio-code 
