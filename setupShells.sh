@@ -44,10 +44,10 @@ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fi
 refreshBash
 
 echo "Setup Shells... Installing bobthefish"
-fish -c "fisher add oh-my-fish/theme-bobthefish"
+fish -c "fisher install oh-my-fish/theme-bobthefish"
 
 echo "Setup Shells... Installing sdkman-for-fish"
-fish -c "fisher add reitzig/sdkman-for-fish"
+fish -c "fisher install reitzig/sdkman-for-fish"
 
 echo "Setup Shells... Updating fish completions"
 fish -c "fish_update_completions"
