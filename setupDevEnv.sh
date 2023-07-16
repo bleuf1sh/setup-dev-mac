@@ -92,7 +92,7 @@ echo
 echo "Setup Dev Env... Installing JetBrains toolbox"
 brew reinstall --cask jetbrains-toolbox --force #guard against pre-installed jetbrains-toolbox
 
-if didRequest "intellij_ce"; then
+
   echo
   echo "Setup Dev Env... Installing IntelliJ Community Edition"
   brew reinstall --cask intellij-idea-ce --force #guard against pre-installed intellij-idea-ce
@@ -100,7 +100,7 @@ if didRequest "intellij_ce"; then
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'IntelliJ IDEA CE'
   installPivotalIdePrefs intellijcommunity
-fi
+
 
 if didRequest "intellij_pro"; then
   echo
@@ -112,7 +112,7 @@ if didRequest "intellij_pro"; then
   installPivotalIdePrefs intellij
 fi
 
-if didRequest "pycharm_ce"; then
+
   echo
   echo "Setup Dev Env... Installing PyCharm Community Edition (free Python IDE)"
   brew reinstall --cask pycharm-ce --force #guard against pre-installed pycharm-ce
@@ -120,7 +120,7 @@ if didRequest "pycharm_ce"; then
   #necessary to force the app to create a prefs file to allow our prefs injection
   openAppSleepThenQuit 'PyCharm CE'
   installPivotalIdePrefs pycharm
-fi
+
 
 if didRequest "pycharm_pro"; then
   echo
